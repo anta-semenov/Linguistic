@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+    <entity name="Course" representedClassName=".Course" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exercise" inverseName="course" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="language" maxCount="1" deletionRule="Nullify" destinationEntity="Language" inverseName="courses" inverseEntity="Language" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Word" inverseName="includeInCourses" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="Exercise" representedClassName=".Exercise" syncable="YES">
+        <attribute name="correctAnswerCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lang" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUsageDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usageCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="course" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="exercises" inverseEntity="Course" syncable="YES"/>
+        <relationship name="translate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="translate" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="exercises" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="Language" representedClassName=".Language" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeOfExerciseInputOutput" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Course" inverseName="language" inverseEntity="Course" syncable="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" syncable="YES">
+        <attribute name="lang" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUsageTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="learnProgress" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nextUsageTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pos" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transcription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="antonyms" inverseEntity="Word" syncable="YES"/>
+        <relationship name="childrens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="parent" inverseEntity="Word" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="words" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="includeInCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="words" inverseEntity="Course" syncable="YES"/>
+        <relationship name="isTranslateFor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordTranslates" inverseName="translate" inverseEntity="WordTranslates" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="childrens" inverseEntity="Word" syncable="YES"/>
+        <relationship name="translates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WordTranslates" inverseName="selfWord" inverseEntity="WordTranslates" syncable="YES"/>
+    </entity>
+    <entity name="WordTranslates" representedClassName=".WordTranslates" syncable="YES">
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="selfWord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="translates" inverseEntity="Word" syncable="YES"/>
+        <relationship name="translate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="isTranslateFor" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-416" positionY="-27" width="128" height="150"/>
+        <element name="Exercise" positionX="-621" positionY="-216" width="128" height="165"/>
+        <element name="Language" positionX="-182" positionY="153" width="128" height="105"/>
+        <element name="Word" positionX="-261" positionY="-153" width="128" height="255"/>
+        <element name="WordTranslates" positionX="-54" positionY="-27" width="128" height="105"/>
+    </elements>
+</model>
