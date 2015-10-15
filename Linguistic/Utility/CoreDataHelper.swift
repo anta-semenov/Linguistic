@@ -66,4 +66,13 @@ class CoreDataHelper: NSObject {
             return []
         }
     }
+    class func executeFetchRequest(fetchRequest: NSFetchRequest, inContext context: NSManagedObjectContext) -> [AnyObject] {
+        do {
+            let results = try context.executeFetchRequest(fetchRequest)
+            return results
+        } catch {
+            print((error as NSError).localizedDescription)
+            return []
+        }
+    }
 }

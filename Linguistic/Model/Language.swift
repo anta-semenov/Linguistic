@@ -11,10 +11,10 @@ import CoreData
 
 class Language: InitialManagedObject {
     
-    class func allLanguages() -> [Language] {
+    class func allLanguages(inContext context: NSManagedObjectContext) -> [Language] {
         let fetchRequest = NSFetchRequest(entityName: String(self))
         
-        let results = CoreDataHelper.instance.executeFetchRequest(fetchRequest)
+        let results = CoreDataHelper.executeFetchRequest(fetchRequest, inContext: context)
         
         return results as! [Language]
     }
@@ -22,7 +22,7 @@ class Language: InitialManagedObject {
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
-        let dynamicCourse = Course()
+        let dynamicCourse = Course(withContext: self.managedObjectContext!)
         dynamicCourse.type = Course.CourseType.Dynamic.rawValue
         dynamicCourse.name = "Words added by you"
         dynamicCourse.isActive = true

@@ -66,7 +66,7 @@ class LessonBrain: NSObject {
     
     init(withLanguage language: Language) {
         self.language = language
-        self.lessonWords = Word.wordsForLesson(forLanguage: language)
+        self.lessonWords = Word.wordsForLesson(forLanguage: language, inContext: language.managedObjectContext!)
         
         super.init()
     }

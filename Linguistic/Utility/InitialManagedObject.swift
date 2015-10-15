@@ -14,7 +14,7 @@ class InitialManagedObject: NSManagedObject {
         return NSEntityDescription.entityForName(String(self), inManagedObjectContext: CoreDataHelper.instance.context)!
     }
     
-    convenience init () {
-        self.init(entity: self.dynamicType.entity, insertIntoManagedObjectContext: CoreDataHelper.instance.context)
+    convenience init(withContext context: NSManagedObjectContext) {
+        self.init(entity: self.dynamicType.entity, insertIntoManagedObjectContext: context)
     }
 }

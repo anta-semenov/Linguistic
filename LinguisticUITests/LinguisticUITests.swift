@@ -59,7 +59,7 @@ class LinguisticUITests: XCTestCase {
     func testChangeSwitchInCell () {
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.staticTexts["test1"].tap()
+        tablesQuery.staticTexts.elementBoundByIndex(0).tap()
         
         let coursesButton = app.buttons["Courses"]
         coursesButton.tap()

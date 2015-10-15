@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Word: InitialManagedObject {
-    class func wordsForLesson(forLanguage language: Language) -> [Word] {
+    class func wordsForLesson(forLanguage language: Language, inContext context: NSManagedObjectContext) -> [Word] {
         let request: NSFetchRequest = NSFetchRequest(entityName: String(self))
         
         let predicateLangAndTime = NSPredicate(format: "lang == %@ AND nextUsageTime <= %@", language.code, NSDate())
@@ -28,7 +28,7 @@ class Word: InitialManagedObject {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateLangAndTime, coursePredicate])
         request.fetchLimit = 60
         
-        let result = CoreDataHelper.instance.executeFetchRequest(request)
+        let result = CoreDataHelper.executeFetchRequest(request, inContext: context)
         
         return result as! [Word]
     }

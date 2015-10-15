@@ -13,6 +13,7 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var languagesItems: UITableView!
     
     var languages: [Language]!
+    let rootContext = CoreDataHelper.instance.context
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
-        languages = Language.allLanguages()
+        languages = Language.allLanguages(inContext: rootContext)
         languagesItems.reloadData()
     }
 
@@ -42,7 +43,7 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
             guard let destinationVC = segue.destinationViewController as? LearningLanguageViewController else {
                 fatalError("Cant't perfom segue with destination controller")
             }
-            let newLanguage = Language()
+            let newLanguage = Language(withContext: rootContext)
             destinationVC.language = newLanguage
         case .ShowLanguage:
             guard let destinationVC = segue.destinationViewController as? LearningLanguageViewController,
