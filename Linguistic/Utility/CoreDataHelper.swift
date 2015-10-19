@@ -57,6 +57,18 @@ class CoreDataHelper: NSObject {
         }
     }
     
+    class func save(context: NSManagedObjectContext) {
+        if !context.hasChanges {
+            return
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print((error as NSError).localizedDescription)
+        }
+    }
+    
     func executeFetchRequest(fetchRequest: NSFetchRequest) -> [AnyObject] {
         do {
             let results = try self.context.executeFetchRequest(fetchRequest)

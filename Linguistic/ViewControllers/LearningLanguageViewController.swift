@@ -35,7 +35,7 @@ class LearningLanguageViewController: UIViewController {
         language.name = nameTextField.text!
         language.typeOfExerciseInputOutput = Int16(inputOutputTypeSegmentController.selectedSegmentIndex)
         
-        CoreDataHelper.instance.save()
+        CoreDataHelper.save(language.managedObjectContext!)
         
         self.navigationController!.popViewControllerAnimated(true)
     }
@@ -48,6 +48,7 @@ class LearningLanguageViewController: UIViewController {
         switch segueIdentifier {
         case .ShowCourses: if let destVC = segue.destinationViewController as? CoursesViewController {
             destVC.language = self.language
+            destVC.context = language.managedObjectContext!
             }
         }
         

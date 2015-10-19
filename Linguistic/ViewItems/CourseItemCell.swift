@@ -19,6 +19,3 @@ class CourseItemCell: UITableViewCell {
     }
 }
 
-protocol UITableViewCellDelegate {
-    func cellWasChanged<T:UITableViewCell>(cell: T) -> Void
-}

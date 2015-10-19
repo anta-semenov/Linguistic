@@ -14,6 +14,7 @@ class CoursesViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var tableView: UITableView!
     var language: Language!
     var fetchedResultsController: NSFetchedResultsController?
+    var context: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class CoursesViewController: UIViewController, UITableViewDataSource, UITableVie
         let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [typeSortDescriptor, nameSortDescriptor]
         
-        let moc = CoreDataHelper.instance.context
+        let moc = context
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchedResultsController!.delegate = self
         
