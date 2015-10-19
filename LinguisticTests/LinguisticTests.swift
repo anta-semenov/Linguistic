@@ -33,4 +33,17 @@ class LinguisticTests: XCTestCase {
         }
     }
     
+    func testLocaleHelper() {
+        var localeHelper: NSLocaleHelper?
+        self.measureBlock {
+            localeHelper = NSLocaleHelper()
+        }
+        
+        XCTAssertEqual(localeHelper!.langNamesWithCodes["Russian"], "ru")
+        XCTAssertEqual(localeHelper!.langNamesWithCodes["English"], "en")
+        let ruIndex = localeHelper!.langNamesSortedArray.indexOf("Russian")!
+        let enIndex = localeHelper!.langNamesSortedArray.indexOf("English")!
+        XCTAssert(ruIndex > enIndex)
+    }
+    
 }

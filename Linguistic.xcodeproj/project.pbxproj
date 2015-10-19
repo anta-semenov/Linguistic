@@ -49,6 +49,8 @@
 		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 		3A8373CC1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		3AC1E2561BC5E7AB00156E62 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		3AC7CA181BC322510084E78A /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		3ACFF0661BB2CF290052F9BF /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0651BB2CF290052F9BF /* WordViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -128,6 +130,7 @@
 		3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseItemCell.swift; path = ViewItems/CourseItemCell.swift; sourceTree = "<group>"; };
 		3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTVCProtocol.swift; path = Utility/CoreDataTVCProtocol.swift; sourceTree = "<group>"; };
 		3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellDelegateProtocol.swift; path = Utility/UITableViewCellDelegateProtocol.swift; sourceTree = "<group>"; };
+		3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSLocaleHelper.swift; path = Utility/NSLocaleHelper.swift; sourceTree = "<group>"; };
 		3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "Model/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataProperties.swift"; path = "Model/Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3ACFF0651BB2CF290052F9BF /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordViewController.swift; path = ViewControllers/WordViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 				3AEE83FB1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift */,
 				3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */,
 				3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */,
+				3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -474,6 +478,7 @@
 				3A4A95BB1BBC9FBD00313B2E /* Course+CoreDataProperties.swift in Sources */,
 				3A4AC6C21BA5C588002DB823 /* Word.swift in Sources */,
 				3ACFF0681BB2CF450052F9BF /* WordsViewController.swift in Sources */,
+				3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */,
 				3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */,
 				3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */,
 				3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */,
@@ -494,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */,
 				3A4AC6A61BA5C51E002DB823 /* LinguisticTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

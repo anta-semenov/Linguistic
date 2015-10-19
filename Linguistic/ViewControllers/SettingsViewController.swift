@@ -57,6 +57,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         return pickerCell
     }
     
+    func cellWasChanged<T : UITableViewCell>(cell: T) {
+        
+    }
+    
     
     enum CellIdentifiers : String {
         case LoginCell = "LoginCell"
