@@ -34,16 +34,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch (indexPath.section, indexPath.row) {
         case (0, 0): return tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LoginCell.rawValue)!
-        case (0, 1): return getDefaultLanguageCell()
-        case (1, 0): return getLanguagePickerCell()
+        case (1, 0): return getDefaultLanguageCell()
+        case (1, 1): return getLanguagePickerCell()
         default: return UITableViewCell()
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 2
-        case 1: if languageSelectMode {return 1} else {return 0}
+        case 0: return 1
+        case 1: if languageSelectMode {return 2} else {return 1}
         default: return 0
         }
     }
@@ -90,25 +90,23 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - TableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             switch languageSelectMode {
             case true: languageSelectMode = false
                        NSUserDefaults.standardUserDefaults().setObject(selectedLanguageCode, forKey: UserDefaultsKeys.MainLanguage.rawValue)
                        NSUserDefaults.standardUserDefaults().synchronize()
+                       tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Middle)
             case false: languageSelectMode = true
+                        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Middle)
                 
             }
-            //let indexes = [NSIndexPath(forRow: 1, inSection: 0), NSIndexPath(forRow: 2, inSection: 0)]
-            //tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Fade)
-            tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Middle)
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-            //tableView.reloadData()
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Fade)
         }
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if languageSelectMode && indexPath.row == 0 && indexPath.section == 1 {
+        if languageSelectMode && indexPath.row == 1 && indexPath.section == 1 {
             return CGFloat(210)
         }
         return tableView.rowHeight
@@ -131,7 +129,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedLanguageCode = localeHelper.langNamesWithCodes[localeHelper.langNamesSortedArray[row]]!
         selectedLanguageName = localeHelper.langCodesWithNames[selectedLanguageCode!]
-        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 1)], withRowAnimation: UITableViewRowAnimation.None)
     }
     
     
