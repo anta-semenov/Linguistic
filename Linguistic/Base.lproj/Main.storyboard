@@ -594,7 +594,7 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="pickerView" destination="CQP-12-Hp2" id="k5i-NF-PDH"/>
+                                            <outlet property="langPickerView" destination="CQP-12-Hp2" id="km6-zX-FJk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

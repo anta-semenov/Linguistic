@@ -8,17 +8,26 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITableViewCellDelegate {
+class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var languageSelectMode: Bool = false
+    var selectedLanguageCode: String?
+    var selectedLanguageName: String?
+    var localeHelper: NSLocaleHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localeHelper = NSLocaleHelper()
+        selectedLanguageCode = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue)
+        selectedLanguageName = localeHelper.langCodesWithNames[selectedLanguageCode!]
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    //MARK: - TableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.row {
@@ -37,30 +46,87 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func getDefaultLanguageCell() -> UITableViewCell {
-        if languageSelectMode {
-            let langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageCell.rawValue)!
-            if let defaultLanguage = NSUserDefaults.valueForKey("DefaultLanguage") as? String {
+        var langCell: UITableViewCell
+        if !languageSelectMode {
+            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageCell.rawValue)!
+            if let defaultLanguage = selectedLanguageName {
                 langCell.detailTextLabel!.text = defaultLanguage
             } else {
                 langCell.detailTextLabel!.text = ""
             }
-            return langCell
         } else {
-            let langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageConfirmSelectCell.rawValue)!
-            return langCell
+            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageConfirmSelectCell.rawValue)!
+            if let defaultLanguage = selectedLanguageName {
+                langCell.textLabel!.text = defaultLanguage
+            } else {
+                langCell.textLabel!.text = ""
+            }
         }
+        
+        
+        return langCell
+        
     }
     
     func getLanguagePickerCell() -> UITableViewCell {
         let pickerCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LanguagePickerCell.rawValue) as! LanguagePickerCell
-        pickerCell.delegate = self
+        pickerCell.langPickerView.dataSource = self
+        pickerCell.langPickerView.delegate = self
+        if let defaultLanguage = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue) {
+            let langIndex = localeHelper.langNamesSortedArray.indexOf(localeHelper.langCodesWithNames[defaultLanguage]!)!
+            pickerCell.langPickerView.selectRow(langIndex, inComponent: 0, animated: false)
+        }
         return pickerCell
     }
     
-    func cellWasChanged<T : UITableViewCell>(cell: T) {
+    
+    //MARK: - TableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 1 {
+            switch languageSelectMode {
+            case true: languageSelectMode = false
+                       NSUserDefaults.standardUserDefaults().setObject(selectedLanguageCode, forKey: UserDefaultsKeys.MainLanguage.rawValue)
+                       NSUserDefaults.standardUserDefaults().synchronize()
+            case false: languageSelectMode = true
+                
+            }
+            /*let indexes = [NSIndexPath(forRow: 1, inSection: 0), NSIndexPath(forRow: 2, inSection: 0)]
+            tableView.reloadRowsAtIndexPaths(indexes, withRowAnimation: UITableViewRowAnimation.Fade)*/
+            tableView.reloadData()
+        }
         
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if languageSelectMode && indexPath.row == 2 && indexPath.section == 0 {
+            return CGFloat(210)
+        }
+        return tableView.rowHeight
+    }
+    
+    //MARK: - LangPicker
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return localeHelper.langNamesSortedArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return localeHelper.langNamesSortedArray[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedLanguageCode = localeHelper.langNamesWithCodes[localeHelper.langNamesSortedArray[row]]!
+        selectedLanguageName = localeHelper.langCodesWithNames[selectedLanguageCode!]
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    
+    //MARK: - Enums
     
     enum CellIdentifiers : String {
         case LoginCell = "LoginCell"

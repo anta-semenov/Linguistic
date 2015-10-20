@@ -24,6 +24,7 @@
 		3A3669281BBEE1FC00130536 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */; };
 		3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3A39EFFB1BB4DB7B00D4330A /* AudioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */; settings = {ASSET_TAGS = (); }; };
+		3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */; settings = {ASSET_TAGS = (); }; };
 		3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */; settings = {ASSET_TAGS = (); }; };
 		3A4A95A21BBB714800313B2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A01BBB714800313B2E /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		3A4A95A51BBB8E9200313B2E /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A41BBB8E9200313B2E /* CoreDataHelper.swift */; settings = {ASSET_TAGS = (); }; };
@@ -99,6 +100,7 @@
 		3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAnswerCell.swift; path = ViewItems/TextAnswerCell.swift; sourceTree = "<group>"; };
 		3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioAnswerCell.swift; path = ViewItems/AudioAnswerCell.swift; sourceTree = "<group>"; };
+		3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsKeys.swift; path = Utility/NSUserDefaultsKeys.swift; sourceTree = "<group>"; };
 		3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguagePickerCell.swift; path = ViewItems/LanguagePickerCell.swift; sourceTree = "<group>"; };
 		3A4A95A11BBB714800313B2E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		3A4A95A41BBB8E9200313B2E /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = Utility/CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */,
 				3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */,
 				3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */,
+				3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				3AC1E2561BC5E7AB00156E62 /* Word+CoreDataProperties.swift in Sources */,
 				3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */,
 				3A4A95B71BBC940100313B2E /* LessonBrain.swift in Sources */,
+				3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */,
 				3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */,
 				3ACFF06C1BB2D0420052F9BF /* CoursesViewController.swift in Sources */,
 				3A4A95B91BBC9E9F00313B2E /* Language+CoreDataProperties.swift in Sources */,

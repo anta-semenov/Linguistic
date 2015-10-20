@@ -10,6 +10,7 @@ import UIKit
 
 class NSLocaleHelper: NSObject {
     let langNamesWithCodes: [String: String]
+    let langCodesWithNames: [String: String]
     let langNamesSortedArray: [String]
     
     override init() {
@@ -24,18 +25,22 @@ class NSLocaleHelper: NSObject {
         }
         
         var tempLangDict = [String:String]()
+        var tempLangDictForNames = [String:String]()
         
         let currentLocale = NSLocale.currentLocale()
         
         for lanCode in unicLangCodes {
             let langName = currentLocale.displayNameForKey(NSLocaleLanguageCode, value: lanCode)
             tempLangDict[langName!] = (lanCode as! String)
+            tempLangDictForNames[lanCode as! String] = langName!
         }
         
         self.langNamesWithCodes = tempLangDict
+        self.langCodesWithNames = tempLangDictForNames
         
         self.langNamesSortedArray = tempLangDict.keys.sort()
         
         super.init()
     }
+    
 }
