@@ -54,6 +54,20 @@ class LinguisticUITests: XCTestCase {
         XCTAssertEqual(app.tables.elementBoundByIndex(0).cells.count, count+1)
     }
     
+    func testDontAddnewDictionary() {
+        
+        let app = XCUIApplication()
+        let count = app.tables.elementBoundByIndex(0).cells.count
+        app.navigationBars["Linguistic.LanguagesView"].buttons["Plus"].tap()
+        
+        
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText("test1")
+        app.navigationBars["Title"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(0).tap()
+        XCTAssertEqual(app.tables.elementBoundByIndex(0).cells.count, count)
+        
+    }
     
     
     func testChangeSwitchInCell () {

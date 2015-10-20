@@ -20,8 +20,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         localeHelper = NSLocaleHelper()
-        selectedLanguageCode = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue)
-        selectedLanguageName = localeHelper.langCodesWithNames[selectedLanguageCode!]
+        if let defaultLanguage = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue) {
+            selectedLanguageCode = defaultLanguage
+            selectedLanguageName = localeHelper.langCodesWithNames[selectedLanguageCode!]
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -30,19 +32,24 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: - TableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0: return tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LoginCell.rawValue)!
-        case 1: return getDefaultLanguageCell()
-        case 2: return getLanguagePickerCell()
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): return tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LoginCell.rawValue)!
+        case (0, 1): return getDefaultLanguageCell()
+        case (1, 0): return getLanguagePickerCell()
         default: return UITableViewCell()
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch languageSelectMode {
-        case true: return 3
-        case false: return 2
+        switch section {
+        case 0: return 2
+        case 1: if languageSelectMode {return 1} else {return 0}
+        default: return 0
         }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
     }
     
     func getDefaultLanguageCell() -> UITableViewCell {
@@ -91,15 +98,17 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             case false: languageSelectMode = true
                 
             }
-            /*let indexes = [NSIndexPath(forRow: 1, inSection: 0), NSIndexPath(forRow: 2, inSection: 0)]
-            tableView.reloadRowsAtIndexPaths(indexes, withRowAnimation: UITableViewRowAnimation.Fade)*/
-            tableView.reloadData()
+            //let indexes = [NSIndexPath(forRow: 1, inSection: 0), NSIndexPath(forRow: 2, inSection: 0)]
+            //tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Fade)
+            tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Middle)
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+            //tableView.reloadData()
         }
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if languageSelectMode && indexPath.row == 2 && indexPath.section == 0 {
+        if languageSelectMode && indexPath.row == 0 && indexPath.section == 1 {
             return CGFloat(210)
         }
         return tableView.rowHeight
