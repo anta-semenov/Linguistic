@@ -16,7 +16,7 @@ extension Exercise {
 
     @NSManaged var lang: String?
     @NSManaged var text: String?
-    @NSManaged var lastUsageDateTime: NSTimeInterval
+    @NSManaged var lastUsageDateTime: NSDate?
     @NSManaged var usageCount: Int16
     @NSManaged var correctAnswerCount: Int16
     @NSManaged var course: Course?

@@ -33,6 +33,7 @@ class LearningLanguageViewController: UIViewController {
     
     @IBAction func save(sender: UIBarButtonItem) {
         language.name = nameTextField.text!
+        language.code = language.name
         language.typeOfExerciseInputOutput = Int16(inputOutputTypeSegmentController.selectedSegmentIndex)
         
         CoreDataHelper.save(language.managedObjectContext!)
@@ -47,8 +48,12 @@ class LearningLanguageViewController: UIViewController {
         
         switch segueIdentifier {
         case .ShowCourses: if let destVC = segue.destinationViewController as? CoursesViewController {
-            destVC.language = self.language
-            destVC.context = language.managedObjectContext!
+                destVC.language = self.language
+                destVC.context = language.managedObjectContext!
+            }
+        case .AddNewWords: if let destVC = segue.destinationViewController as? AddingWordsTableViewController {
+                destVC.language = self.language
+                destVC.context = language.managedObjectContext!
             }
         }
         
@@ -56,5 +61,6 @@ class LearningLanguageViewController: UIViewController {
     
     enum SegueIdentifier: String {
         case  ShowCourses = "showCourses"
+        case  AddNewWords = "AddNewWords"
     }
 }

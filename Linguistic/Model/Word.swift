@@ -32,4 +32,36 @@ class Word: InitialManagedObject {
         
         return result as! [Word]
     }
+    
+    class func findWord(word: String, withLanguage language: String, withPosition position: String, inContext context: NSManagedObjectContext) -> Word? {
+        let request = NSFetchRequest(entityName: String(self))
+        
+        let languagePredicate = NSPredicate(format: "lang == %@", language)
+        let positionPredicate = NSPredicate(format: "pos == %@", position)
+        let wordPredicate = NSPredicate(format: "word == %@", word)
+        
+        let predicates = NSCompoundPredicate(andPredicateWithSubpredicates: [wordPredicate, languagePredicate, positionPredicate])
+        
+        request.predicate = predicates
+        request.fetchLimit = 1
+        
+        guard let result = CoreDataHelper.executeFetchRequest(request, inContext: context) as? [Word] where result.count > 0 else {
+            return nil
+        }
+        
+        return result[0]
+        
+    }
+    
+    class func createWord(word: String, withLanguage language: String, withPosition position: String, inContext context: NSManagedObjectContext) -> Word {
+        let newWord = Word(withContext: context)
+        newWord.word = word
+        newWord.lang = language
+        newWord.pos = position
+        newWord.nextUsageTime = NSDate()
+        newWord.lastUsageTime = NSDate()
+        newWord.learnProgress = 0
+        
+        return newWord
+    }
 }

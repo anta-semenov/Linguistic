@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureParse()
         
+        initialazeDefaultLanguage()
+        
         return true
     }
 

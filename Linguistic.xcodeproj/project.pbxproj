@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A36690A1BBED3D500130536 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3669091BBED3D500130536 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A2E357F1BD9039700272405 /* YandexApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E357E1BD9039700272405 /* YandexApiHelper.swift */; };
+		3A31F4611BD7F6060018FAA0 /* AddingWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */; };
+		3A31F4631BD801910018FAA0 /* NewWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4621BD801910018FAA0 /* NewWord.swift */; };
+		3A31F4651BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4641BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift */; };
+		3A36690A1BBED3D500130536 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3669091BBED3D500130536 /* SettingsViewController.swift */; };
 		3A36690D1BBEDE1400130536 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36690C1BBEDE1400130536 /* Security.framework */; };
-		3A3669111BBEE11700130536 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36690F1BBEE11700130536 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		3A3669121BBEE11700130536 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3669101BBEE11700130536 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		3A36691E1BBEE1FC00130536 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3669131BBEE1FB00130536 /* Accounts.framework */; };
 		3A36691F1BBEE1FC00130536 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3669141BBEE1FB00130536 /* AudioToolbox.framework */; };
 		3A3669201BBEE1FC00130536 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3669151BBEE1FB00130536 /* CFNetwork.framework */; };
@@ -22,21 +24,22 @@
 		3A3669261BBEE1FC00130536 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36691B1BBEE1FC00130536 /* Social.framework */; };
 		3A3669271BBEE1FC00130536 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36691C1BBEE1FC00130536 /* StoreKit.framework */; };
 		3A3669281BBEE1FC00130536 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */; };
-		3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3A39EFFB1BB4DB7B00D4330A /* AudioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */; settings = {ASSET_TAGS = (); }; };
-		3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95A21BBB714800313B2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A01BBB714800313B2E /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		3A4A95A51BBB8E9200313B2E /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A41BBB8E9200313B2E /* CoreDataHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */; };
+		3A39EFFB1BB4DB7B00D4330A /* AudioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */; };
+		3A438B8B1BDD3754002B5A98 /* AWTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */; };
+		3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */; };
+		3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */; };
+		3A4A95A21BBB714800313B2E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A01BBB714800313B2E /* Model.xcdatamodeld */; };
+		3A4A95A51BBB8E9200313B2E /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A41BBB8E9200313B2E /* CoreDataHelper.swift */; };
 		3A4A95A71BBB8EB200313B2E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4A95A61BBB8EB200313B2E /* CoreData.framework */; };
-		3A4A95A91BBC827D00313B2E /* InitialManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A81BBC827D00313B2E /* InitialManagedObject.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95B11BBC92FA00313B2E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AB1BBC92FA00313B2E /* Language.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AD1BBC92FA00313B2E /* Course.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AF1BBC92FA00313B2E /* WordTranslates.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95B71BBC940100313B2E /* LessonBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95B61BBC940100313B2E /* LessonBrain.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95B91BBC9E9F00313B2E /* Language+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95B81BBC9E9F00313B2E /* Language+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95BB1BBC9FBD00313B2E /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95BA1BBC9FBD00313B2E /* Course+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3A4A95BD1BBCD6B600313B2E /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95BC1BBCD6B600313B2E /* SegueHandlerType.swift */; settings = {ASSET_TAGS = (); }; };
+		3A4A95A91BBC827D00313B2E /* InitialManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95A81BBC827D00313B2E /* InitialManagedObject.swift */; };
+		3A4A95B11BBC92FA00313B2E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AB1BBC92FA00313B2E /* Language.swift */; };
+		3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AD1BBC92FA00313B2E /* Course.swift */; };
+		3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95AF1BBC92FA00313B2E /* WordTranslates.swift */; };
+		3A4A95B71BBC940100313B2E /* LessonBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95B61BBC940100313B2E /* LessonBrain.swift */; };
+		3A4A95B91BBC9E9F00313B2E /* Language+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95B81BBC9E9F00313B2E /* Language+CoreDataProperties.swift */; };
+		3A4A95BB1BBC9FBD00313B2E /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95BA1BBC9FBD00313B2E /* Course+CoreDataProperties.swift */; };
+		3A4A95BD1BBCD6B600313B2E /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4A95BC1BBCD6B600313B2E /* SegueHandlerType.swift */; };
 		3A4AC6911BA5C51D002DB823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6901BA5C51D002DB823 /* AppDelegate.swift */; };
 		3A4AC6931BA5C51D002DB823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6921BA5C51D002DB823 /* ViewController.swift */; };
 		3A4AC6961BA5C51D002DB823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4AC6941BA5C51D002DB823 /* Main.storyboard */; };
@@ -47,22 +50,27 @@
 		3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6BF1BA5C567002DB823 /* Lesson.swift */; };
 		3A4AC6C21BA5C588002DB823 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C11BA5C588002DB823 /* Word.swift */; };
 		3A4AC6C41BA5C5A0002DB823 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */; };
-		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; settings = {ASSET_TAGS = (); }; };
-		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		3A8373CC1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; settings = {ASSET_TAGS = (); }; };
-		3AC1E2561BC5E7AB00156E62 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3AC7CA181BC322510084E78A /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF0661BB2CF290052F9BF /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0651BB2CF290052F9BF /* WordViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF0681BB2CF450052F9BF /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0671BB2CF450052F9BF /* WordsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF06A1BB2CF570052F9BF /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0691BB2CF570052F9BF /* LessonViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF06C1BB2D0420052F9BF /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06B1BB2D0420052F9BF /* CoursesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF06E1BB2D0630052F9BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06D1BB2D0630052F9BF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF0701BB2D0770052F9BF /* LearningLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06F1BB2D0770052F9BF /* LearningLanguageViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACFF0721BB2D0AB0052F9BF /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0711BB2D0AB0052F9BF /* LanguagesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3AEE83FC1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE83FB1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift */; settings = {ASSET_TAGS = (); }; };
-		3AEE84021BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE84011BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; };
+		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; };
+		3A7601D81BDFCC1E00195D61 /* LinguisticProjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7601D71BDFCC1E00195D61 /* LinguisticProjectConstants.swift */; };
+		3A8373CC1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */; };
+		3A9A2D0D1BDB961D00BA3FBB /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A2D0C1BDB961D00BA3FBB /* Translate.swift */; };
+		3A9A2D0F1BDB963A00BA3FBB /* YAExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A2D0E1BDB963A00BA3FBB /* YAExercise.swift */; };
+		3A9A2D111BDBA0DC00BA3FBB /* YAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A2D101BDBA0DC00BA3FBB /* YAModel.swift */; };
+		3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; };
+		3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */; };
+		3AC1E2561BC5E7AB00156E62 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */; };
+		3AC7CA181BC322510084E78A /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */; };
+		3ACFF0661BB2CF290052F9BF /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0651BB2CF290052F9BF /* WordViewController.swift */; };
+		3ACFF0681BB2CF450052F9BF /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0671BB2CF450052F9BF /* WordsViewController.swift */; };
+		3ACFF06A1BB2CF570052F9BF /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0691BB2CF570052F9BF /* LessonViewController.swift */; };
+		3ACFF06C1BB2D0420052F9BF /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06B1BB2D0420052F9BF /* CoursesViewController.swift */; };
+		3ACFF06E1BB2D0630052F9BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06D1BB2D0630052F9BF /* LoginViewController.swift */; };
+		3ACFF0701BB2D0770052F9BF /* LearningLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF06F1BB2D0770052F9BF /* LearningLanguageViewController.swift */; };
+		3ACFF0721BB2D0AB0052F9BF /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACFF0711BB2D0AB0052F9BF /* LanguagesViewController.swift */; };
+		3AEE83FC1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE83FB1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift */; };
+		3AEE84021BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEE84011BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift */; };
+		B0F8640EAE45BC4D5A9AACAB /* Pods_Linguistic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD8A43B2C0618E2AA35D9F6 /* Pods_Linguistic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +91,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A2E357E1BD9039700272405 /* YandexApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YandexApiHelper.swift; path = Utility/YandexApiHelper.swift; sourceTree = "<group>"; };
+		3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingWordsTableViewController.swift; path = ViewControllers/AddingWordsTableViewController.swift; sourceTree = "<group>"; };
+		3A31F4621BD801910018FAA0 /* NewWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewWord.swift; path = Model/NewWord.swift; sourceTree = "<group>"; };
+		3A31F4641BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+EnumsCellIdentifiers.swift"; path = "Utility/UITableView+EnumsCellIdentifiers.swift"; sourceTree = "<group>"; };
 		3A3669091BBED3D500130536 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		3A36690C1BBEDE1400130536 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		3A36690F1BBEE11700130536 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		3A3669101BBEE11700130536 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3A3669131BBEE1FB00130536 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3A3669141BBEE1FB00130536 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A3669151BBEE1FB00130536 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -100,6 +110,7 @@
 		3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAnswerCell.swift; path = ViewItems/TextAnswerCell.swift; sourceTree = "<group>"; };
 		3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioAnswerCell.swift; path = ViewItems/AudioAnswerCell.swift; sourceTree = "<group>"; };
+		3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWTranslateCell.swift; path = ViewItems/AWTranslateCell.swift; sourceTree = "<group>"; };
 		3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsKeys.swift; path = Utility/NSUserDefaultsKeys.swift; sourceTree = "<group>"; };
 		3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguagePickerCell.swift; path = ViewItems/LanguagePickerCell.swift; sourceTree = "<group>"; };
 		3A4A95A11BBB714800313B2E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -131,7 +142,11 @@
 		3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Model/Exercise.swift; sourceTree = "<group>"; };
 		3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseItemCell.swift; path = ViewItems/CourseItemCell.swift; sourceTree = "<group>"; };
 		3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTVCProtocol.swift; path = Utility/CoreDataTVCProtocol.swift; sourceTree = "<group>"; };
+		3A7601D71BDFCC1E00195D61 /* LinguisticProjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinguisticProjectConstants.swift; sourceTree = "<group>"; };
 		3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellDelegateProtocol.swift; path = Utility/UITableViewCellDelegateProtocol.swift; sourceTree = "<group>"; };
+		3A9A2D0C1BDB961D00BA3FBB /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Translate.swift; path = Model/Translate.swift; sourceTree = "<group>"; };
+		3A9A2D0E1BDB963A00BA3FBB /* YAExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAExercise.swift; path = Model/YAExercise.swift; sourceTree = "<group>"; };
+		3A9A2D101BDBA0DC00BA3FBB /* YAModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAModel.swift; path = Model/YAModel.swift; sourceTree = "<group>"; };
 		3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSLocaleHelper.swift; path = Utility/NSLocaleHelper.swift; sourceTree = "<group>"; };
 		3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "Model/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataProperties.swift"; path = "Model/Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -144,6 +159,9 @@
 		3ACFF0711BB2D0AB0052F9BF /* LanguagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguagesViewController.swift; path = ViewControllers/LanguagesViewController.swift; sourceTree = "<group>"; };
 		3AEE83FB1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+ShowingAlerts.swift"; path = "Utility/UIViewController+ShowingAlerts.swift"; sourceTree = "<group>"; };
 		3AEE84011BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WordTranslates+CoreDataProperties.swift"; path = "Model/WordTranslates+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4BD8A43B2C0618E2AA35D9F6 /* Pods_Linguistic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linguistic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C94CAF4781F59441665D62 /* Pods-Linguistic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linguistic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Linguistic/Pods-Linguistic.release.xcconfig"; sourceTree = "<group>"; };
+		CC2A3AA16B490D92DF893A9A /* Pods-Linguistic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linguistic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Linguistic/Pods-Linguistic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,10 +180,9 @@
 				3A3669261BBEE1FC00130536 /* Social.framework in Frameworks */,
 				3A3669271BBEE1FC00130536 /* StoreKit.framework in Frameworks */,
 				3A3669281BBEE1FC00130536 /* SystemConfiguration.framework in Frameworks */,
-				3A3669111BBEE11700130536 /* Bolts.framework in Frameworks */,
 				3A36690D1BBEDE1400130536 /* Security.framework in Frameworks */,
-				3A3669121BBEE11700130536 /* Parse.framework in Frameworks */,
 				3A4A95A71BBB8EB200313B2E /* CoreData.framework in Frameworks */,
+				B0F8640EAE45BC4D5A9AACAB /* Pods_Linguistic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +217,9 @@
 				3A36691B1BBEE1FC00130536 /* Social.framework */,
 				3A36691C1BBEE1FC00130536 /* StoreKit.framework */,
 				3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */,
-				3A36690F1BBEE11700130536 /* Bolts.framework */,
-				3A3669101BBEE11700130536 /* Parse.framework */,
 				3A36690C1BBEDE1400130536 /* Security.framework */,
 				3A4A95A61BBB8EB200313B2E /* CoreData.framework */,
+				4BD8A43B2C0618E2AA35D9F6 /* Pods_Linguistic.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,10 +227,12 @@
 		3A39EFF71BB4DA8100D4330A /* ViewItems */ = {
 			isa = PBXGroup;
 			children = (
+				3A2E357E1BD9039700272405 /* YandexApiHelper.swift */,
 				3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */,
 				3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */,
 				3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */,
 				3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */,
+				3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */,
 			);
 			name = ViewItems;
 			sourceTree = "<group>";
@@ -230,6 +248,7 @@
 				3A8373CB1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift */,
 				3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */,
 				3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */,
+				3A31F4641BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -242,6 +261,7 @@
 				3A4AC6A41BA5C51E002DB823 /* LinguisticTests */,
 				3A4AC6AF1BA5C51E002DB823 /* LinguisticUITests */,
 				3A4AC68E1BA5C51D002DB823 /* Products */,
+				ED3DF2F895F6D4D14C41D901 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +278,7 @@
 		3A4AC68F1BA5C51D002DB823 /* Linguistic */ = {
 			isa = PBXGroup;
 			children = (
+				3A7601D71BDFCC1E00195D61 /* LinguisticProjectConstants.swift */,
 				3A4A95A31BBB8E5300313B2E /* Utility */,
 				3A39EFF71BB4DA8100D4330A /* ViewItems */,
 				3ACFF0641BB2CE880052F9BF /* ViewControllers */,
@@ -294,6 +315,7 @@
 		3A4AC6BE1BA5C52C002DB823 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A9A2D0B1BDB95F500BA3FBB /* ForYandexApi */,
 				3A4A95AB1BBC92FA00313B2E /* Language.swift */,
 				3A4A95B81BBC9E9F00313B2E /* Language+CoreDataProperties.swift */,
 				3A4A95AD1BBC92FA00313B2E /* Course.swift */,
@@ -310,6 +332,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		3A9A2D0B1BDB95F500BA3FBB /* ForYandexApi */ = {
+			isa = PBXGroup;
+			children = (
+				3A31F4621BD801910018FAA0 /* NewWord.swift */,
+				3A9A2D0C1BDB961D00BA3FBB /* Translate.swift */,
+				3A9A2D0E1BDB963A00BA3FBB /* YAExercise.swift */,
+				3A9A2D101BDBA0DC00BA3FBB /* YAModel.swift */,
+			);
+			name = ForYandexApi;
+			sourceTree = "<group>";
+		};
 		3ACFF0641BB2CE880052F9BF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,8 +354,18 @@
 				3ACFF06F1BB2D0770052F9BF /* LearningLanguageViewController.swift */,
 				3ACFF0711BB2D0AB0052F9BF /* LanguagesViewController.swift */,
 				3A3669091BBED3D500130536 /* SettingsViewController.swift */,
+				3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ED3DF2F895F6D4D14C41D901 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC2A3AA16B490D92DF893A9A /* Pods-Linguistic.debug.xcconfig */,
+				B4C94CAF4781F59441665D62 /* Pods-Linguistic.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,9 +375,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A4AC6B51BA5C51E002DB823 /* Build configuration list for PBXNativeTarget "Linguistic" */;
 			buildPhases = (
+				786D1D89DAB62A0DE1C00AA2 /* Check Pods Manifest.lock */,
 				3A4AC6891BA5C51D002DB823 /* Sources */,
 				3A4AC68A1BA5C51D002DB823 /* Frameworks */,
 				3A4AC68B1BA5C51D002DB823 /* Resources */,
+				E775FC34F31AB9ACC671D18D /* Embed Pods Frameworks */,
+				37F9B5A232E12CF127188FCF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -394,6 +440,9 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 3578ZBUV4W;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
@@ -456,6 +505,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37F9B5A232E12CF127188FCF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Linguistic/Pods-Linguistic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		786D1D89DAB62A0DE1C00AA2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E775FC34F31AB9ACC671D18D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Linguistic/Pods-Linguistic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A4AC6891BA5C51D002DB823 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -465,24 +562,32 @@
 				3ACFF0661BB2CF290052F9BF /* WordViewController.swift in Sources */,
 				3A4A95A51BBB8E9200313B2E /* CoreDataHelper.swift in Sources */,
 				3AEE84021BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift in Sources */,
+				3A31F4611BD7F6060018FAA0 /* AddingWordsTableViewController.swift in Sources */,
 				3AEE83FC1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift in Sources */,
 				3A4A95A21BBB714800313B2E /* Model.xcdatamodeld in Sources */,
+				3A9A2D111BDBA0DC00BA3FBB /* YAModel.swift in Sources */,
+				3A31F4631BD801910018FAA0 /* NewWord.swift in Sources */,
 				3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */,
 				3A39EFFB1BB4DB7B00D4330A /* AudioAnswerCell.swift in Sources */,
 				3A4A95B11BBC92FA00313B2E /* Language.swift in Sources */,
 				3ACFF0721BB2D0AB0052F9BF /* LanguagesViewController.swift in Sources */,
 				3A4AC6C41BA5C5A0002DB823 /* Exercise.swift in Sources */,
 				3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */,
+				3A2E357F1BD9039700272405 /* YandexApiHelper.swift in Sources */,
 				3A36690A1BBED3D500130536 /* SettingsViewController.swift in Sources */,
 				3AC7CA181BC322510084E78A /* Exercise+CoreDataProperties.swift in Sources */,
 				3A4AC6931BA5C51D002DB823 /* ViewController.swift in Sources */,
+				3A438B8B1BDD3754002B5A98 /* AWTranslateCell.swift in Sources */,
 				3A4A95A91BBC827D00313B2E /* InitialManagedObject.swift in Sources */,
 				3A4A95BD1BBCD6B600313B2E /* SegueHandlerType.swift in Sources */,
+				3A31F4651BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift in Sources */,
 				3A4A95BB1BBC9FBD00313B2E /* Course+CoreDataProperties.swift in Sources */,
 				3A4AC6C21BA5C588002DB823 /* Word.swift in Sources */,
 				3ACFF0681BB2CF450052F9BF /* WordsViewController.swift in Sources */,
+				3A9A2D0D1BDB961D00BA3FBB /* Translate.swift in Sources */,
 				3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */,
 				3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */,
+				3A9A2D0F1BDB963A00BA3FBB /* YAExercise.swift in Sources */,
 				3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */,
 				3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */,
 				3A8373CC1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift in Sources */,
@@ -493,6 +598,7 @@
 				3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */,
 				3A4A95B71BBC940100313B2E /* LessonBrain.swift in Sources */,
 				3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */,
+				3A7601D81BDFCC1E00195D61 /* LinguisticProjectConstants.swift in Sources */,
 				3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */,
 				3ACFF06C1BB2D0420052F9BF /* CoursesViewController.swift in Sources */,
 				3A4A95B91BBC9E9F00313B2E /* Language+CoreDataProperties.swift in Sources */,
@@ -636,6 +742,7 @@
 		};
 		3A4AC6B61BA5C51E002DB823 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2A3AA16B490D92DF893A9A /* Pods-Linguistic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -649,11 +756,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonsemenov.linguistic.Linguistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3A4AC6B71BA5C51E002DB823 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C94CAF4781F59441665D62 /* Pods-Linguistic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -667,6 +776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.antonsemenov.linguistic.Linguistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

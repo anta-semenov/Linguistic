@@ -16,7 +16,7 @@ extension Word {
 
     @NSManaged var lang: String?
     @NSManaged var lastUsageTime: NSDate?
-    @NSManaged var learnProgress: NSNumber?
+    @NSManaged var learnProgress: Int16
     @NSManaged var nextUsageTime: NSDate?
     @NSManaged var pos: String?
     @NSManaged var transcription: String?

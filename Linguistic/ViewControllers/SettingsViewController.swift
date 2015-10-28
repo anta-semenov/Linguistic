@@ -55,14 +55,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func getDefaultLanguageCell() -> UITableViewCell {
         var langCell: UITableViewCell
         if !languageSelectMode {
-            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageCell.rawValue)!
+            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageCell)!
             if let defaultLanguage = selectedLanguageName {
                 langCell.detailTextLabel!.text = defaultLanguage
             } else {
                 langCell.detailTextLabel!.text = ""
             }
         } else {
-            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageConfirmSelectCell.rawValue)!
+            langCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.DefaultLanguageConfirmSelectCell)!
             if let defaultLanguage = selectedLanguageName {
                 langCell.textLabel!.text = defaultLanguage
             } else {
@@ -70,13 +70,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         
-        
         return langCell
-        
     }
     
     func getLanguagePickerCell() -> UITableViewCell {
-        let pickerCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LanguagePickerCell.rawValue) as! LanguagePickerCell
+        let pickerCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifiers.LanguagePickerCell) as! LanguagePickerCell
         pickerCell.langPickerView.dataSource = self
         pickerCell.langPickerView.delegate = self
         if let defaultLanguage = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue) {

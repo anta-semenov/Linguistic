@@ -19,6 +19,19 @@ class Language: InitialManagedObject {
         return results as! [Language]
     }
     
+    class func languageWithCode(code:String, inContext context:NSManagedObjectContext) -> Language? {
+        let request = NSFetchRequest(entityName: String(self))
+        
+        request.predicate = NSPredicate(format: "code == %@", code)
+        request.fetchLimit = 1
+        
+        guard let result = CoreDataHelper.executeFetchRequest(request, inContext: context) as? [Language] where result.count > 0 else {
+            return nil
+        }
+        
+        return result[0]
+    }
+    
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
