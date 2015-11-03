@@ -200,7 +200,14 @@ class AddingWordsTableViewController: UITableViewController, UISearchBarDelegate
         }
         
         let newWord = newWords[indexPath!.section]
-        newWord.addTranslate(translate, toContext: context)
+        do {
+            try newWord.addTranslate(translate, toContext: context)
+        } catch let error as NSError {
+            print((error as NSError).localizedDescription)
+            fatalError()
+        }
+        
+        
         CoreDataHelper.save(context)
         
         let startLocation = indexPath!.row

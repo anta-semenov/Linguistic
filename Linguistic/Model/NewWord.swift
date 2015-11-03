@@ -59,7 +59,7 @@ class NewWord: YAModel {
         }
     }
     
-    func addTranslate(translate: Translate, toContext context: NSManagedObjectContext) {
+    func addTranslate(translate: Translate, toContext context: NSManagedObjectContext) throws {
         //find word in context
         var word = Word.findWord(text, withLanguage: sourceLanguage, withPosition: pos, inContext: context)
         
@@ -68,10 +68,11 @@ class NewWord: YAModel {
         }
         
         //add translate
-        translate.addToContext(context, withWord: word!)
+        try translate.addToContext(context, withWord: word!)
         
         //add connection beetween word course
-        let course = Course.findDynamicCourseInContext(context, forLanguage: sourceLanguage)
+        let course = try Course.findDynamicCourseInContext(context, forLanguage: sourceLanguage)
+        
         var wordCourses = [Course]()
         if word!.includeInCourses != nil {
             wordCourses.appendContentsOf(word!.includeInCourses!.allObjects as! [Course])

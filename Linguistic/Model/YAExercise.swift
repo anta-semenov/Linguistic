@@ -30,16 +30,16 @@ class YAExercise: YAModel {
         super.init(sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage)
     }
     
-    func addToContext(context:NSManagedObjectContext, withWords words:[Word], withTranslateWords translateWords: [Word]? = nil) {
+    func addToContext(context:NSManagedObjectContext, withWords words:[Word], withTranslateWords translateWords: [Word]? = nil) throws {
         
-        let exercise = getExerciseInContext(context, withLanguage: sourceLanguage, withText: text, withWords: words)
+        let exercise = try getExerciseInContext(context, withLanguage: sourceLanguage, withText: text, withWords: words)
         
         var exerciseTranslates = [Exercise]()
         
         if translateWords != nil {
             //Adding translate exercise
             for translate in translates {
-                let translateExercise = getExerciseInContext(context, withLanguage: destinationLanguage, withText: translate, withWords: translateWords!)
+                let translateExercise = try getExerciseInContext(context, withLanguage: destinationLanguage, withText: translate, withWords: translateWords!)
                 
                 //adding connections beetween exercises
                 exerciseTranslates.append(translateExercise)
@@ -54,8 +54,9 @@ class YAExercise: YAModel {
         }
     }
     
-    func getExerciseInContext(context:NSManagedObjectContext, withLanguage language:String, withText text:String, var withWords words: [Word]) ->Exercise {
-        let courseLanguage = Course.findDynamicCourseInContext(context, forLanguage: language)
+    func getExerciseInContext(context:NSManagedObjectContext, withLanguage language:String, withText text:String, var withWords words: [Word]) throws -> Exercise {
+        
+        let courseLanguage = try Course.findDynamicCourseInContext(context, forLanguage: language)
         
         var exercise = Exercise.findExerciseInContext(context, withText: text, withLanguage: language, inCourse: courseLanguage)
         if exercise == nil {

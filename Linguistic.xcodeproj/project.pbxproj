@@ -50,6 +50,9 @@
 		3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6BF1BA5C567002DB823 /* Lesson.swift */; };
 		3A4AC6C21BA5C588002DB823 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C11BA5C588002DB823 /* Word.swift */; };
 		3A4AC6C41BA5C5A0002DB823 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */; };
+		3A4BB8AD1BE5F9830035D64E /* TestWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AC1BE5F9830035D64E /* TestWord.json */; };
+		3A4BB8AF1BE5FFFE0035D64E /* YApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */; };
+		3A55FC5E1BE4E6BC00D104BD /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */; };
 		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; };
 		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; };
 		3A7601D81BDFCC1E00195D61 /* LinguisticProjectConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7601D71BDFCC1E00195D61 /* LinguisticProjectConstants.swift */; };
@@ -140,6 +143,9 @@
 		3A4AC6BF1BA5C567002DB823 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lesson.swift; path = Model/Lesson.swift; sourceTree = "<group>"; };
 		3A4AC6C11BA5C588002DB823 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = Model/Word.swift; sourceTree = "<group>"; };
 		3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Model/Exercise.swift; sourceTree = "<group>"; };
+		3A4BB8AC1BE5F9830035D64E /* TestWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestWord.json; sourceTree = "<group>"; };
+		3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YApiTests.swift; sourceTree = "<group>"; };
+		3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseItemCell.swift; path = ViewItems/CourseItemCell.swift; sourceTree = "<group>"; };
 		3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTVCProtocol.swift; path = Utility/CoreDataTVCProtocol.swift; sourceTree = "<group>"; };
 		3A7601D71BDFCC1E00195D61 /* LinguisticProjectConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinguisticProjectConstants.swift; sourceTree = "<group>"; };
@@ -227,7 +233,6 @@
 		3A39EFF71BB4DA8100D4330A /* ViewItems */ = {
 			isa = PBXGroup;
 			children = (
-				3A2E357E1BD9039700272405 /* YandexApiHelper.swift */,
 				3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */,
 				3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */,
 				3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */,
@@ -249,6 +254,7 @@
 				3ABCC5E31BD4D5030049F557 /* NSLocaleHelper.swift */,
 				3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */,
 				3A31F4641BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift */,
+				3A2E357E1BD9039700272405 /* YandexApiHelper.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -299,6 +305,9 @@
 			children = (
 				3A4AC6A51BA5C51E002DB823 /* LinguisticTests.swift */,
 				3A4AC6A71BA5C51E002DB823 /* Info.plist */,
+				3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */,
+				3A4BB8AC1BE5F9830035D64E /* TestWord.json */,
+				3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */,
 			);
 			path = LinguisticTests;
 			sourceTree = "<group>";
@@ -493,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4BB8AD1BE5F9830035D64E /* TestWord.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,8 +619,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4BB8AF1BE5FFFE0035D64E /* YApiTests.swift in Sources */,
 				3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */,
 				3A4AC6A61BA5C51E002DB823 /* LinguisticTests.swift in Sources */,
+				3A55FC5E1BE4E6BC00D104BD /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,13 +22,13 @@ class CoreDataHelper: NSObject {
     let model: NSManagedObjectModel
     let context: NSManagedObjectContext
     
-    private override init() {
+    init(withDbName dbName:String) {
         let modelURL = NSBundle.mainBundle().URLForResource("Model", withExtension: "momd")!
         model = NSManagedObjectModel(contentsOfURL: modelURL)!
         
         let fileManager = NSFileManager.defaultManager()
         let docsURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last! as NSURL
-        let storeURL = docsURL.URLByAppendingPathComponent("base.sqlite")
+        let storeURL = docsURL.URLByAppendingPathComponent("\(dbName).sqlite")
         
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
@@ -43,6 +43,10 @@ class CoreDataHelper: NSObject {
         context.persistentStoreCoordinator = coordinator
         
         super.init()
+    }
+    
+    private convenience override init() {
+        self.init(withDbName: "base")
     }
     
     func save() {
@@ -78,9 +82,9 @@ class CoreDataHelper: NSObject {
             return []
         }
     }
-    class func executeFetchRequest(fetchRequest: NSFetchRequest, inContext context: NSManagedObjectContext) -> [AnyObject] {
+    class func executeFetchRequest(fetchRequest: NSFetchRequest, inContext currentContext: NSManagedObjectContext) -> [AnyObject] {
         do {
-            let results = try context.executeFetchRequest(fetchRequest)
+            let results = try currentContext.executeFetchRequest(fetchRequest)
             return results
         } catch {
             print((error as NSError).localizedDescription)

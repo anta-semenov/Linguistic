@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 class Course: InitialManagedObject {
-    class func findDynamicCourseInContext(context:NSManagedObjectContext, forLanguage languageCode:String) ->Course {
+    class func findDynamicCourseInContext(context:NSManagedObjectContext, forLanguage languageCode:String) throws -> Course {
         guard let language = Language.languageWithCode(languageCode, inContext: context) else {
-            fatalError("There aren't dynamic course for \(languageCode)")
+            throw NSError(domain: "LStoreStack", code: 1, userInfo: ["description":"There aren't language with code: \(languageCode)"])
         }
         
         let request = NSFetchRequest(entityName: String(self))
@@ -21,7 +21,7 @@ class Course: InitialManagedObject {
         request.fetchLimit = 1
         
         guard let result = CoreDataHelper.executeFetchRequest(request, inContext: context) as? [Course] where result.count > 0 else {
-            fatalError("There aren't dynamic course for \(languageCode)")
+            throw NSError(domain: "LStoreStack", code: 2, userInfo: ["description":"There aren't dynamic course for \(languageCode) language"])
         }
         
         return result[0]

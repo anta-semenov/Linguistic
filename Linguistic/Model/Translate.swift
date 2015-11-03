@@ -32,18 +32,25 @@ class Translate: YAModel {
         super.init(sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage)
     }
     
-    func addToContext(context: NSManagedObjectContext, withWord word: Word) {
+    func addToContext(context: NSManagedObjectContext, withWord word: Word) throws {
         var translateWord = Word.findWord(text, withLanguage: destinationLanguage, withPosition: pos, inContext: context)
         
         if translateWord == nil {
             translateWord = Word.createWord(text, withLanguage: destinationLanguage, withPosition: pos, inContext: context)
         }
         //Adding translates
-        if WordTranslates.findTranslateInContext(context, fowWord: word, withTranslateWord: translateWord!) == nil {
-            
+        if let wordTranslate = WordTranslates.findTranslateInContext(context, fowWord: word, withTranslateWord: translateWord!) {
+            wordTranslate.rating = Int16(rating)
+        } else {
             WordTranslates.createTranslateInContext(context, fowWord: word, withTranslateWord: translateWord!, withRating: rating)
         }
-        let course = Course.findDynamicCourseInContext(context, forLanguage: destinationLanguage)
+        //adding reverse translate
+        if WordTranslates.findTranslateInContext(context, fowWord: translateWord!, withTranslateWord: word) == nil {
+            WordTranslates.createTranslateInContext(context, fowWord: translateWord!, withTranslateWord: word, withRating: rating)
+        }
+        
+        let course = try Course.findDynamicCourseInContext(context, forLanguage: destinationLanguage)
+        
         var wordCourses = [Course]()
         if translateWord!.includeInCourses != nil {
             wordCourses.appendContentsOf(translateWord!.includeInCourses!.allObjects as! [Course])
@@ -54,7 +61,7 @@ class Translate: YAModel {
         //Adding examples
         for example in exercises {
             if example.isSelected {
-                example.addToContext(context, withWords: [word], withTranslateWords: [translateWord!])
+                try example.addToContext(context, withWords: [word], withTranslateWords: [translateWord!])
             }
         }
     }

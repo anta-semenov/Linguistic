@@ -35,15 +35,21 @@ class YandexApiHelper: NSObject {
             
         request.responseJSON {response in
                 if let json = response.result.value {
-                    var words = [NewWord]()
-                    for (_,subJson):(String,JSON) in JSON(json)["def"] {
-                        let word = NewWord(jsonData: subJson, sourceLanguage: self.sourceLanguage, destinationLanguage: self.destinationLanguage)
-                        words.append(word)
-                    }
+                    let words = self.getNewWordsFromJsonResult(JSON(json))
                     callback(words)
                 }            
         }
         
+    }
+    
+    func getNewWordsFromJsonResult(jsonResult:JSON) -> [NewWord] {
+        var words = [NewWord]()
+        for (_,subJson):(String,JSON) in jsonResult["def"] {
+            let word = NewWord(jsonData: subJson, sourceLanguage: self.sourceLanguage, destinationLanguage: self.destinationLanguage)
+            words.append(word)
+        }
+        
+        return words
     }
     
     func performYandexTranslateRequest(text: String, callback:([NewWord]) -> Void) {

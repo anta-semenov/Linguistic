@@ -10,11 +10,7 @@ import UIKit
 import CoreData
 
 class InitialManagedObject: NSManagedObject {
-    class var entity: NSEntityDescription {
-        return NSEntityDescription.entityForName(String(self), inManagedObjectContext: CoreDataHelper.instance.context)!
-    }
-    
     convenience init(withContext context: NSManagedObjectContext) {
-        self.init(entity: self.dynamicType.entity, insertIntoManagedObjectContext: context)
+        self.init(entity: NSEntityDescription.entityForName(String(self.dynamicType), inManagedObjectContext: context)!, insertIntoManagedObjectContext: context)
     }
 }

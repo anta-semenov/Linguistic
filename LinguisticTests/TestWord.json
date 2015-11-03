@@ -1,0 +1,58 @@
+{"head":{},
+ "def":[{"text":"time",
+         "pos":"noun",
+         "ts":"taɪm",
+         "tr":[{"text":"время",
+                "pos":"noun",
+                "gen":"ср",
+                "syn":[{"text":"раз",
+                        "pos":"noun",
+                        "gen":"м"},
+                       {"text":"момент",
+                        "pos":"noun",
+                        "gen":"м"}],
+                "mean":[{"text":"day"},
+                        {"text":"season"},
+                        {"text":"hour"}],
+                "ex":[{"text":"last time",
+                       "tr":[{"text":"последний раз"}]},
+                      {"text":"good time",
+                       "tr":[{"text":"хороший момент"}]},
+                      {"text":"reasonable time",
+                       "tr":[{"text":"разумный срок"}]},
+                      {"text":"hard time",
+                       "tr":[{"text":"тяжелая пора"}]}
+                      ]
+               },
+               {"text":"период",
+                "pos":"noun",
+                "gen":"м",
+                "syn":[{"text":"эпоха",
+                        "pos":"noun",
+                        "gen":"ж"},
+                       {"text":"век",
+                        "pos":"noun",
+                        "gen":"м"}],
+                "mean":[{"text":"age"}],
+                "ex":[{"text":"long time",
+                       "tr":[{"text":"длительный период"}]}
+                      ]
+                }
+               ]
+        },
+        {"text":"time",
+         "pos":"adjective",
+         "ts":"taɪm",
+         "tr":[{"text":"временный",
+                "pos":"adjective",
+                "syn":[{"text":"временной",
+                        "pos":"adjective"}],
+                "mean":[{"text":"interim"}],
+                "ex":[{"text":"time zone",
+                       "tr":[{"text":"временная зона"}]},
+                      {"text":"time interval",
+                      "tr":[{"text":"временной интервал"}]}]}
+               ]
+        }
+        ]
+}
