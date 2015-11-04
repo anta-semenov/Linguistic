@@ -26,13 +26,15 @@ class NewWord: YAModel {
         self.text = jsonData["text"].stringValue
         self.pos = jsonData["pos"].stringValue
         
-        let translateRateWeight = 100/jsonData["tr"].count
-        var translaeIndex = 0
-        
-        for (_,subJson):(String,JSON) in jsonData["tr"] {
-            self.translates.append(Translate(withJSON: subJson, sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage, rating: 100-translaeIndex*translateRateWeight))
-            self.uiItems.append(self.translates.last!)
-            translaeIndex++
+        if jsonData["tr"].count > 0 {
+            let translateRateWeight = 100/jsonData["tr"].count
+            var translaeIndex = 0
+            
+            for (_,subJson):(String,JSON) in jsonData["tr"] {
+                self.translates.append(Translate(withJSON: subJson, sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage, rating: 100-translaeIndex*translateRateWeight))
+                self.uiItems.append(self.translates.last!)
+                translaeIndex++
+            }
         }
         
         super.init(sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage)

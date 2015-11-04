@@ -41,11 +41,10 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         switch segueIdentifierForSegue(segue) {
         case .AddLanguage:
-            guard let destinationVC = segue.destinationViewController as? LearningLanguageViewController else {
-                fatalError("Cant't perfom segue with destination controller")
+            guard let destinationVC = segue.destinationViewController as? AddLanguageViewController else {
+                    fatalError("Cant't perfom segue with destination controller")
             }
-            let newLanguage = Language(withContext: rootContext)
-            destinationVC.language = newLanguage
+            destinationVC.context = rootContext
         case .ShowLanguage:
             guard let destinationVC = segue.destinationViewController as? LearningLanguageViewController,
                 let itemCell = sender as? UITableViewCell else {

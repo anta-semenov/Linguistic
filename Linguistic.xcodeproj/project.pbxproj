@@ -52,6 +52,7 @@
 		3A4AC6C41BA5C5A0002DB823 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */; };
 		3A4BB8AD1BE5F9830035D64E /* TestWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AC1BE5F9830035D64E /* TestWord.json */; };
 		3A4BB8AF1BE5FFFE0035D64E /* YApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */; };
+		3A4DCC871BEA5C8000227FDD /* AddLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DCC861BEA5C8000227FDD /* AddLanguageViewController.swift */; };
 		3A55FC5E1BE4E6BC00D104BD /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */; };
 		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; };
 		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; };
@@ -145,6 +146,7 @@
 		3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Model/Exercise.swift; sourceTree = "<group>"; };
 		3A4BB8AC1BE5F9830035D64E /* TestWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestWord.json; sourceTree = "<group>"; };
 		3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YApiTests.swift; sourceTree = "<group>"; };
+		3A4DCC861BEA5C8000227FDD /* AddLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLanguageViewController.swift; path = ViewControllers/AddLanguageViewController.swift; sourceTree = "<group>"; };
 		3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseItemCell.swift; path = ViewItems/CourseItemCell.swift; sourceTree = "<group>"; };
 		3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTVCProtocol.swift; path = Utility/CoreDataTVCProtocol.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				3ACFF0711BB2D0AB0052F9BF /* LanguagesViewController.swift */,
 				3A3669091BBED3D500130536 /* SettingsViewController.swift */,
 				3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */,
+				3A4DCC861BEA5C8000227FDD /* AddLanguageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				3AC1E2561BC5E7AB00156E62 /* Word+CoreDataProperties.swift in Sources */,
 				3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */,
 				3A4A95B71BBC940100313B2E /* LessonBrain.swift in Sources */,
+				3A4DCC871BEA5C8000227FDD /* AddLanguageViewController.swift in Sources */,
 				3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */,
 				3A7601D81BDFCC1E00195D61 /* LinguisticProjectConstants.swift in Sources */,
 				3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */,
