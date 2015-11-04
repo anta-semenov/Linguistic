@@ -43,4 +43,8 @@ class NSLocaleHelper: NSObject {
         super.init()
     }
     
+    class func nameForLanguage(code:String) -> String? {
+        return NSLocale.currentLocale().displayNameForKey(NSLocaleLanguageCode, value: code)
+    }
+    
 }

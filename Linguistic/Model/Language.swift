@@ -32,6 +32,18 @@ class Language: InitialManagedObject {
         return result[0]
     }
     
+    class func languagesWithoutCodes(codes:[String], inContext context:NSManagedObjectContext) -> [Language] {
+        let request = NSFetchRequest(entityName: String(self))
+        
+        request.predicate = NSPredicate(format: "NOT(code IN %@)", codes)
+        
+        guard let result = CoreDataHelper.executeFetchRequest(request, inContext: context) as? [Language] where result.count > 0 else {
+            return [Language]()
+        }
+        
+        return result
+    }
+    
     override func awakeFromInsert() {
         super.awakeFromInsert()
         
@@ -44,6 +56,23 @@ class Language: InitialManagedObject {
     
     func activeCourses() -> NSSet {
         return self.courses.filteredSetUsingPredicate(NSPredicate(format: "isActive == YES"))
+    }
+    
+    class func addLanguage(withCode code:String, withName name:String, var inContext context: NSManagedObjectContext? = nil, var contextShouldBeSaved:Bool = false) {
+        if context == nil {
+            context = CoreDataHelper.instance.context
+            contextShouldBeSaved = true
+        }
+        
+        let language = Language(withContext: context!)
+        
+        language.name = name
+        language.code = code
+        language.typeOfExerciseInputOutput = 2
+        
+        if contextShouldBeSaved {
+            CoreDataHelper.save(context!)
+        }
     }
 
 }

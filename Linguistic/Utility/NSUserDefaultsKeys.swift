@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum UserDefaultsKeys: String {
     case MainLanguage = "MainLanguage"
@@ -18,5 +19,12 @@ func initialazeDefaultLanguage() {
         let language = NSLocale.componentsFromLocaleIdentifier(currentLocaleID)[NSLocaleLanguageCode]
         NSUserDefaults.standardUserDefaults().setValue(language, forKey: UserDefaultsKeys.MainLanguage.rawValue)
         NSUserDefaults.standardUserDefaults().synchronize()
+        mainLanguageDidSetToCode(language!)
+    }
+}
+
+func mainLanguageDidSetToCode(code:String) {
+    if Language.languageWithCode(code, inContext: CoreDataHelper.instance.context) == nil {
+        Language.addLanguage(withCode: code, withName: NSLocaleHelper.nameForLanguage(code)!)
     }
 }

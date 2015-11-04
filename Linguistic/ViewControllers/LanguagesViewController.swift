@@ -28,7 +28,8 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
-        languages = Language.allLanguages(inContext: rootContext)
+        
+        languages = Language.languagesWithoutCodes([NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue)!], inContext: rootContext)
         languagesItems.reloadData()
     }
 

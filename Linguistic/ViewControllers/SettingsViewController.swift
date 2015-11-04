@@ -93,6 +93,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             case true: languageSelectMode = false
                        NSUserDefaults.standardUserDefaults().setObject(selectedLanguageCode, forKey: UserDefaultsKeys.MainLanguage.rawValue)
                        NSUserDefaults.standardUserDefaults().synchronize()
+                       mainLanguageDidSetToCode(selectedLanguageCode!)
                        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Middle)
             case false: languageSelectMode = true
                         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Middle)
