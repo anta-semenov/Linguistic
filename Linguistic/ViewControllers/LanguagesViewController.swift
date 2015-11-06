@@ -78,6 +78,19 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //Ask user for confirmation
+        self.showOkCancelQuestion("Confirm deletion", message: "Deleting the language will delete all your progress in words and exercises. This action is undo", okHandler: {() -> Void in let deletingLanguage = self.languages[indexPath.row]
+                                         self.languages.removeAtIndex(indexPath.row)
+                                         self.rootContext.deleteObject(deletingLanguage)
+                                         CoreDataHelper.save(self.rootContext)
+                                         self.languagesItems.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)}, cancelHandler: nil)
+    }
+    
     
 
 }
