@@ -8,37 +8,28 @@
 
 import UIKit
 
-class LearningLanguageViewController: UIViewController {
+class LearningLanguageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITableViewCellDelegate {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var inputOutputTypeSegmentController: UISegmentedControl!
-    var language: Language!
+    @IBOutlet weak var tableView: UITableView!
+    var language: Language! {
+        didSet {
+            initializeCoursesArray()
+        }
+    }
+    var courses: [Course]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.navigationItem.title = language.name
     }
     
-    override func viewWillAppear(animated: Bool) {
-        nameTextField.text = language.name
-        inputOutputTypeSegmentController.selectedSegmentIndex = Int(language.typeOfExerciseInputOutput)
-        print(inputOutputTypeSegmentController.selectedSegmentIndex)
-    }
-    
-    @IBAction func save(sender: UIBarButtonItem) {
-        language.name = nameTextField.text!
-        language.code = language.name
-        language.typeOfExerciseInputOutput = Int16(inputOutputTypeSegmentController.selectedSegmentIndex)
-        
+    override func viewWillDisappear(animated: Bool) {
         CoreDataHelper.save(language.managedObjectContext!)
-        
-        self.navigationController!.popViewControllerAnimated(true)
+    }
+    
+    func initializeCoursesArray() {
+        courses = language.courses.sortedArrayUsingDescriptors([NSSortDescriptor(key: "type", ascending: true)]) as! [Course]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -47,10 +38,7 @@ class LearningLanguageViewController: UIViewController {
         }
         
         switch segueIdentifier {
-        case .ShowCourses: if let destVC = segue.destinationViewController as? CoursesViewController {
-                destVC.language = self.language
-                destVC.context = language.managedObjectContext!
-            }
+        case .StartLesson: break
         case .AddNewWords: if let destVC = segue.destinationViewController as? AddingWordsTableViewController {
                 destVC.language = self.language
                 destVC.context = language.managedObjectContext!
@@ -60,7 +48,76 @@ class LearningLanguageViewController: UIViewController {
     }
     
     enum SegueIdentifier: String {
-        case  ShowCourses = "showCourses"
+        case  StartLesson = "StartLesson"
         case  AddNewWords = "AddNewWords"
     }
+    
+    //MARK: - CellDelegate
+    func cellWasChanged<T : UITableViewCell>(cell: T) {
+        if let courseCell = cell as? CourseItemCell, let indexPath = tableView.indexPathForCell(courseCell) {
+            let item = courses[indexPath.row]
+            item.isActive = courseCell.activityStatus.on
+        }
+        
+        if let languageInOutCell = cell as? LanguageInOutTypeCell {
+            language.typeOfExerciseInputOutput = Int16(languageInOutCell.inOutTypeSwitch.selectedSegmentIndex)
+        }
+    }
+    
+    //MARK: - TableViewDatasource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            return "Courses"
+        }
+        return nil
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 2: return courses.count
+        default: return 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0: return tableView.dequeueReusableCellWithIdentifier(LLCellIdentifiers.buttonsCell, forIndexPath: indexPath)
+        case 1: return configureLanguageInOutTypeCell(indexPath)
+        case 2: return configureCourseCell(indexPath)
+        default: return UITableViewCell()
+        }
+    }
+    
+    func configureLanguageInOutTypeCell(indexPath: NSIndexPath) -> LanguageInOutTypeCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(LLCellIdentifiers.languageInOutTypeCell, forIndexPath: indexPath) as! LanguageInOutTypeCell
+        
+        cell.inOutTypeSwitch.selectedSegmentIndex = Int(language.typeOfExerciseInputOutput)
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    func configureCourseCell(indexPath: NSIndexPath) -> CourseItemCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(LLCellIdentifiers.courseCell, forIndexPath: indexPath) as! CourseItemCell
+        
+        let item = courses[indexPath.row]
+        
+        cell.courseName.text = item.name
+        cell.activityStatus.setOn(item.isActive, animated: false)
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    enum LLCellIdentifiers: String {
+        case buttonsCell = "buttonsCell"
+        case languageInOutTypeCell = "languageInOutTypeCell"
+        case courseCell = "courseCell"
+    }
+    
+    //MARK: - TableViewDelegate
 }

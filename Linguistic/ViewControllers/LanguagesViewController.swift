@@ -88,7 +88,7 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
                                          self.languages.removeAtIndex(indexPath.row)
                                          self.rootContext.deleteObject(deletingLanguage)
                                          CoreDataHelper.save(self.rootContext)
-                                         self.languagesItems.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)}, cancelHandler: nil)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)}, cancelHandler: {tableView.setEditing(false, animated: true)})
     }
     
     
