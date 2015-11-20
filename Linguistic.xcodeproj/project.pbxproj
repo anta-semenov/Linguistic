@@ -26,6 +26,7 @@
 		3A3669281BBEE1FC00130536 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */; };
 		3A39EFF91BB4DB5A00D4330A /* TextAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */; };
 		3A39EFFB1BB4DB7B00D4330A /* AudioAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */; };
+		3A404F151BEE5505009D118B /* LessonExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A404F141BEE5505009D118B /* LessonExercise.swift */; };
 		3A438B8B1BDD3754002B5A98 /* AWTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */; };
 		3A4698021BD5F04A00A77665 /* NSUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */; };
 		3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */; };
@@ -54,6 +55,7 @@
 		3A4BB8AF1BE5FFFE0035D64E /* YApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */; };
 		3A4DCC871BEA5C8000227FDD /* AddLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DCC861BEA5C8000227FDD /* AddLanguageViewController.swift */; };
 		3A4E3BC01BED96EF00B08629 /* LanguageInOutTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4E3BBF1BED96EF00B08629 /* LanguageInOutTypeCell.swift */; };
+		3A5403791BEF961B000194A2 /* StatisticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5403781BEF961B000194A2 /* StatisticHelper.swift */; };
 		3A55FC5E1BE4E6BC00D104BD /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */; };
 		3A6DBB1F1BC85ED800EBDC23 /* CourseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */; };
 		3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */; };
@@ -115,6 +117,7 @@
 		3A36691D1BBEE1FC00130536 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3A39EFF81BB4DB5A00D4330A /* TextAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextAnswerCell.swift; path = ViewItems/TextAnswerCell.swift; sourceTree = "<group>"; };
 		3A39EFFA1BB4DB7B00D4330A /* AudioAnswerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioAnswerCell.swift; path = ViewItems/AudioAnswerCell.swift; sourceTree = "<group>"; };
+		3A404F141BEE5505009D118B /* LessonExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonExercise.swift; path = Model/LessonExercise.swift; sourceTree = "<group>"; };
 		3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWTranslateCell.swift; path = ViewItems/AWTranslateCell.swift; sourceTree = "<group>"; };
 		3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsKeys.swift; path = Utility/NSUserDefaultsKeys.swift; sourceTree = "<group>"; };
 		3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguagePickerCell.swift; path = ViewItems/LanguagePickerCell.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YApiTests.swift; sourceTree = "<group>"; };
 		3A4DCC861BEA5C8000227FDD /* AddLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLanguageViewController.swift; path = ViewControllers/AddLanguageViewController.swift; sourceTree = "<group>"; };
 		3A4E3BBF1BED96EF00B08629 /* LanguageInOutTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanguageInOutTypeCell.swift; path = ViewItems/LanguageInOutTypeCell.swift; sourceTree = "<group>"; };
+		3A5403781BEF961B000194A2 /* StatisticHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticHelper.swift; path = Model/StatisticHelper.swift; sourceTree = "<group>"; };
 		3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		3A6DBB1E1BC85ED800EBDC23 /* CourseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseItemCell.swift; path = ViewItems/CourseItemCell.swift; sourceTree = "<group>"; };
 		3A72BA8D1BC6D452006F6A43 /* CoreDataTVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTVCProtocol.swift; path = Utility/CoreDataTVCProtocol.swift; sourceTree = "<group>"; };
@@ -247,6 +251,16 @@
 			name = ViewItems;
 			sourceTree = "<group>";
 		};
+		3A404F131BEDBFAA009D118B /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				3A4A95B61BBC940100313B2E /* LessonBrain.swift */,
+				3A404F141BEE5505009D118B /* LessonExercise.swift */,
+				3A5403781BEF961B000194A2 /* StatisticHelper.swift */,
+			);
+			name = Lesson;
+			sourceTree = "<group>";
+		};
 		3A4A95A31BBB8E5300313B2E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +343,7 @@
 		3A4AC6BE1BA5C52C002DB823 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A404F131BEDBFAA009D118B /* Lesson */,
 				3A9A2D0B1BDB95F500BA3FBB /* ForYandexApi */,
 				3A4A95AB1BBC92FA00313B2E /* Language.swift */,
 				3A4A95B81BBC9E9F00313B2E /* Language+CoreDataProperties.swift */,
@@ -341,7 +356,6 @@
 				3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */,
 				3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */,
 				3AC7CA171BC322510084E78A /* Exercise+CoreDataProperties.swift */,
-				3A4A95B61BBC940100313B2E /* LessonBrain.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -578,9 +592,11 @@
 				3ACFF0661BB2CF290052F9BF /* WordViewController.swift in Sources */,
 				3A4A95A51BBB8E9200313B2E /* CoreDataHelper.swift in Sources */,
 				3AEE84021BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift in Sources */,
+				3A404F151BEE5505009D118B /* LessonExercise.swift in Sources */,
 				3A31F4611BD7F6060018FAA0 /* AddingWordsTableViewController.swift in Sources */,
 				3AEE83FC1BC422F6001384A8 /* UIViewController+ShowingAlerts.swift in Sources */,
 				3A4A95A21BBB714800313B2E /* Model.xcdatamodeld in Sources */,
+				3A5403791BEF961B000194A2 /* StatisticHelper.swift in Sources */,
 				3A9A2D111BDBA0DC00BA3FBB /* YAModel.swift in Sources */,
 				3A31F4631BD801910018FAA0 /* NewWord.swift in Sources */,
 				3A72BA8E1BC6D452006F6A43 /* CoreDataTVCProtocol.swift in Sources */,

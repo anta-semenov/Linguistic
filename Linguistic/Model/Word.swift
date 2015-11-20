@@ -28,6 +28,8 @@ class Word: InitialManagedObject {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateLangAndTime, coursePredicate])
         request.fetchLimit = 60
         
+        request.sortDescriptors = [NSSortDescriptor(key: "nextUsageTime", ascending: true)]
+        
         let result = CoreDataHelper.executeFetchRequest(request, inContext: context)
         
         return result as! [Word]

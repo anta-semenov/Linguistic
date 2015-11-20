@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 import CoreData
 
-class NewWord: YAModel {
+final class NewWord: YAModel {
     let text: String
     var translates = [Translate]()
     var translatesCount: Int {

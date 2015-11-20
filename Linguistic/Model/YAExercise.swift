@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import CoreData
 
-class YAExercise: YAModel {
+final class YAExercise: YAModel {
     let text:String
     var translates:[String] = [String]()
     var translatesString:String

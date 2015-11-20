@@ -11,8 +11,8 @@ import SwiftyJSON
 
 
 class YAModel:NSObject {
-    let sourceLanguage:String
-    let destinationLanguage:String
+    final let sourceLanguage:String
+    final let destinationLanguage:String
 
     init(sourceLanguage:String, destinationLanguage:String) {
         self.sourceLanguage = sourceLanguage

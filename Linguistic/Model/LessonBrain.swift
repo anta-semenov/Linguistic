@@ -13,7 +13,6 @@
 - определяет будет ли использоваться задание на перевод или нет (на основании прогресса слова)
 - определяет подходящие упражнения для слова (на основнании слов пользователя, уровне упражнения, доступных курсов, последней дате выполнения упражнения, и корректности выполнения упражнения, необходимости наличия перевода)
 - определяет тип упражнения (выбор ответа/составление фразы/заполнение пропуска) (на основании прогресса слова, корректности выполнения упражнения и случайности/статистики по успехам пользователя)
-- определяет упражнение на одно слово или несколько (на соснове пслучайности и статистики)
 - определяет тип ввода вывода для упражнения на основании прогресса слова, корректности выполнения упражнения и настроек языка
 - выбирает/подгатавливает упражнение
 - проверяет ответ
@@ -28,13 +27,13 @@
 70 — 100%: на максимально возможно количество слов
 
 
-Статистику по типам упражнений можно хранить в UserDefaults. Для каждого типа упражнения храним кол-во ответов всего и количество правильных ответов. Чем хуже процент тем больше вес упражнения при выборе типа. Для каждого типа получаем случайное число (0..<20) и умножаем его на процент. Берем наименьшее число.
+Статистику по типам упражнений можно хранить в Языке (т.к. данные специфичны для каждого языка). Для каждого типа упражнения храним кол-во ответов всего и количество правильных ответов. Чем хуже процент тем больше вес упражнения при выборе типа. Для каждого типа получаем случайное число (0..<20) и умножаем его на процент. Берем наименьшее число.
 
 Так же ведем статистику по аудио и текстовому вводу и выводу. Отдельно определяем тип вывода и тип ввода (для некоторых типов упражнений заданы жестко). Там где можем выбирать так же получаем случайное число (0..<20) и умножаем на процент. Берем наименьшее
 
 Правило изменения прогресса слова:
 За правильный ответ даем бонус (2), за неправильный штраф (1)
-Умножаем бонус на мультипликатор в зависимости от прогресса слова:
+Умножаем бонус на коэффициент в зависимости от прогресса слова:
  0..<20 — 4
 20..<50 — 3
 50..<70 — 2
@@ -50,49 +49,111 @@
 72..<84 — 10 д
 84..<100 — 20 д
 > 100 — 80 д
-
-
 */
 
 
 import UIKit
 import CoreData
 
-class LessonBrain: NSObject {
-    var questionOutputType: InputOutputType?
-    var answerInputType: InputOutputType?
+final class LessonBrain: NSObject {
+    var questionOutputType: OutputType?
+    var answerInputType: InputType?
     var language: Language
     var lessonWords: [Word]
+    let statistic: StatisticHelper
+    var currentExercise: LessonExercise?
+    var pastExercises = [LessonExercise]()
     
     init(withLanguage language: Language) {
         self.language = language
         self.lessonWords = Word.wordsForLesson(forLanguage: language, inContext: language.managedObjectContext!)
+        self.statistic = StatisticHelper(withLanguage: language.code)
         
         super.init()
     }
     
-    func timeIntervalForProgresLevel(progresLevel: Int) -> NSTimeInterval {
-        var interval: NSTimeInterval = 0
+    //MARK: - New exercise
+    
+    func nextExercise() {
+        //Получаем новое слово
+        let nextWord = lessonWords.removeFirst()
         
-        switch progresLevel {
-        case 0..<12: interval = 3*60*60
-        case 12..<24: interval = 6*60*60
-        case 24..<36: interval = 12*60*60
-        case 36..<48: interval = 24*60*60
-        case 48..<60: interval = 2*24*60*60
-        case 60..<72: interval = 5*24*60*60
-        case 72..<84: interval = 10*24*60*60
-        case 84..<100: interval = 20*24*60*60
-        default: interval = 80*24*60*60
+        switch nextWord.learnProgress {
+        case 0..<20:
+            let questionType = getVariant(QuestionType.from0to20ProgressValues)
+            switch questionType {
+            case .QuestionTypeChooseTranslate:
+                answerInputType = InputType.TextChoise
+                questionOutputType = getVariant(OutputType.allValues)
+            case .QuestionTypeChooseBackTranslate:
+                answerInputType = getVariant(InputType.allValues)
+                questionOutputType = OutputType.Text
+            default: break
+            }
+            currentExercise = LessonExercise(withWord: nextWord, withQuestionType: questionType)
+        case 20..<40:
+            let questionType = QuestionType.QuestionTypeCompileTranslate
+            questionOutputType = getVariant(OutputType.allValues)
+            answerInputType = InputType.TextChoise
+            currentExercise = LessonExercise(withWord: nextWord, withQuestionType: questionType)
+        default: break
         }
-        
-        return interval
     }
+    
+    func getVariant<T>(variants:[T]) -> T {
+        var result = variants[0]
+        var minRate = 9999999
+        
+        for variant in variants {
+            let rate = statistic.getRatioForKey(variant) * Int(arc4random()%20)
+            if rate < minRate {
+                result = variant
+                minRate = rate
+            }
+        }
+        return result
+    }
+    
+    //MARK: - Checking
+    
+    func checkAnswer(answer: String) -> Bool {
+        return currentExercise!.checkAnswer(answer)
+    }
+    
+    
+    
+    
+    
 
+    
 }
 
-enum InputOutputType: Int {
-    case Audio = 0
-    case Text = 1
+enum QuestionType {
+    case QuestionTypeChooseTranslate //выбираем перевод слова или фразы
+    case QuestionTypeChooseBackTranslate //выбираем обратный перевод слова или фразы
+    case QuestionTypeCompileTranslate //составить перевод фразы или слова по буквам, у упражнения должен быть перевод
+    case QuestionTypeFillMissings //заполняем пропуски по аудированию, в аудировании слова есть
+    case QuestionTypeInsertMissings //заполняем пропуски по аудированию или тексту, в задании слова пропущены
+    case QuestionTypeCompilePhrase //составить осмысленную фразу из набора слов, на продвинутых могут быть дополнительные слова, но надо проверять грамматическую целостность
+    case QuestionTypeCompletePhrase //выбрать правильный вариант окончания фразы (может быть ответ диалога)
+    
+    static let allValues = [QuestionTypeChooseTranslate,QuestionTypeCompileTranslate,QuestionTypeFillMissings,QuestionTypeInsertMissings,QuestionTypeCompilePhrase,QuestionTypeCompletePhrase]
+    static let from0to20ProgressValues = [QuestionTypeChooseTranslate,QuestionTypeChooseBackTranslate]
+}
+
+enum InputType {
+    case AudioChoise, AudioRecord, TextChoise
+    
+    static let allValues = [AudioChoise, AudioRecord, TextChoise]
+}
+
+enum OutputType {
+    case Audio, Text
+    
+    static let allValues = [Audio, Text]
+}
+
+enum SpecialCharacters: String {
+    case Missing = "<#>"
 }
 

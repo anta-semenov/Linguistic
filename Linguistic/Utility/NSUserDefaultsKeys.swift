@@ -11,6 +11,7 @@ import CoreData
 
 enum UserDefaultsKeys: String {
     case MainLanguage = "MainLanguage"
+    case LanguageStatistic = "LanguageStatistic"
 }
 
 func initialazeDefaultLanguage() {
