@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A24A1AD1C021598009F831D /* LessonBrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24A1AC1C021598009F831D /* LessonBrainTests.swift */; };
 		3A2E357F1BD9039700272405 /* YandexApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E357E1BD9039700272405 /* YandexApiHelper.swift */; };
 		3A31F4611BD7F6060018FAA0 /* AddingWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */; };
 		3A31F4631BD801910018FAA0 /* NewWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4621BD801910018FAA0 /* NewWord.swift */; };
@@ -48,7 +49,6 @@
 		3A4AC69B1BA5C51D002DB823 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4AC6991BA5C51D002DB823 /* LaunchScreen.storyboard */; };
 		3A4AC6A61BA5C51E002DB823 /* LinguisticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6A51BA5C51E002DB823 /* LinguisticTests.swift */; };
 		3A4AC6B11BA5C51E002DB823 /* LinguisticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6B01BA5C51E002DB823 /* LinguisticUITests.swift */; };
-		3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6BF1BA5C567002DB823 /* Lesson.swift */; };
 		3A4AC6C21BA5C588002DB823 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C11BA5C588002DB823 /* Word.swift */; };
 		3A4AC6C41BA5C5A0002DB823 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */; };
 		3A4BB8AD1BE5F9830035D64E /* TestWord.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A4BB8AC1BE5F9830035D64E /* TestWord.json */; };
@@ -98,6 +98,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A24A1AC1C021598009F831D /* LessonBrainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonBrainTests.swift; sourceTree = "<group>"; };
 		3A2E357E1BD9039700272405 /* YandexApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YandexApiHelper.swift; path = Utility/YandexApiHelper.swift; sourceTree = "<group>"; };
 		3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingWordsTableViewController.swift; path = ViewControllers/AddingWordsTableViewController.swift; sourceTree = "<group>"; };
 		3A31F4621BD801910018FAA0 /* NewWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewWord.swift; path = Model/NewWord.swift; sourceTree = "<group>"; };
@@ -145,7 +146,6 @@
 		3A4AC6AC1BA5C51E002DB823 /* LinguisticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguisticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4AC6B01BA5C51E002DB823 /* LinguisticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguisticUITests.swift; sourceTree = "<group>"; };
 		3A4AC6B21BA5C51E002DB823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A4AC6BF1BA5C567002DB823 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lesson.swift; path = Model/Lesson.swift; sourceTree = "<group>"; };
 		3A4AC6C11BA5C588002DB823 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = Model/Word.swift; sourceTree = "<group>"; };
 		3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Model/Exercise.swift; sourceTree = "<group>"; };
 		3A4BB8AC1BE5F9830035D64E /* TestWord.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestWord.json; sourceTree = "<group>"; };
@@ -327,6 +327,7 @@
 				3A55FC5D1BE4E6BC00D104BD /* CoreDataTests.swift */,
 				3A4BB8AC1BE5F9830035D64E /* TestWord.json */,
 				3A4BB8AE1BE5FFFE0035D64E /* YApiTests.swift */,
+				3A24A1AC1C021598009F831D /* LessonBrainTests.swift */,
 			);
 			path = LinguisticTests;
 			sourceTree = "<group>";
@@ -351,7 +352,6 @@
 				3A4A95BA1BBC9FBD00313B2E /* Course+CoreDataProperties.swift */,
 				3A4A95AF1BBC92FA00313B2E /* WordTranslates.swift */,
 				3AEE84011BC425AB001384A8 /* WordTranslates+CoreDataProperties.swift */,
-				3A4AC6BF1BA5C567002DB823 /* Lesson.swift */,
 				3A4AC6C11BA5C588002DB823 /* Word.swift */,
 				3AC1E2551BC5E7AB00156E62 /* Word+CoreDataProperties.swift */,
 				3A4AC6C31BA5C5A0002DB823 /* Exercise.swift */,
@@ -618,7 +618,6 @@
 				3ACFF0681BB2CF450052F9BF /* WordsViewController.swift in Sources */,
 				3A9A2D0D1BDB961D00BA3FBB /* Translate.swift in Sources */,
 				3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */,
-				3A4AC6C01BA5C567002DB823 /* Lesson.swift in Sources */,
 				3A9A2D0F1BDB963A00BA3FBB /* YAExercise.swift in Sources */,
 				3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */,
 				3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */,
@@ -646,6 +645,7 @@
 				3A4BB8AF1BE5FFFE0035D64E /* YApiTests.swift in Sources */,
 				3ABCC5E51BD4DA370049F557 /* NSLocaleHelper.swift in Sources */,
 				3A4AC6A61BA5C51E002DB823 /* LinguisticTests.swift in Sources */,
+				3A24A1AD1C021598009F831D /* LessonBrainTests.swift in Sources */,
 				3A55FC5E1BE4E6BC00D104BD /* CoreDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

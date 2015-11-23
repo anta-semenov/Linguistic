@@ -13,6 +13,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
     @IBOutlet weak var questionTypeLabel: UILabel!
     @IBOutlet weak var questionTextLabel: UILabel!
     @IBOutlet weak var questionMissingNumber: UISegmentedControl!
+    @IBOutlet weak var nextCheckButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()

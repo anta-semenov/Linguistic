@@ -54,17 +54,28 @@ class LessonExercise: NSObject {
     }
     
     func initForTranslate() {
-        question = mainWord.word!
         
         let request = NSFetchRequest(entityName: "WordTranslates")
         request.predicate = NSPredicate(format: "selfWord == %@ AND language == %@", mainWord, languageForTranslate)
         let translates = CoreDataHelper.executeFetchRequest(request, inContext: context) as! [WordTranslates]
         
-        correctAnswer = getTranslateAccidently(translates).translate!.word!
-        
+        //firstly we should determine direction of translate that we'll use
         var variants = [String]()
-        variants.append(correctAnswer)
-        variants.appendContentsOf(getTranslateVariantsForWord(mainWord))        
+        switch (arc4random()%20 > 10) {
+        case true:
+            question = mainWord.word!
+            correctAnswer = getTranslateAccidently(translates).translate!.word!
+            variants.append(correctAnswer)
+            variants.appendContentsOf(getTranslateVariantsForWord(mainWord))
+        case false:
+            question = getTranslateAccidently(translates).translate!.word!
+            correctAnswer = mainWord.word!
+            variants.append(correctAnswer)
+            variants.appendContentsOf(getVariantsForWord(mainWord))
+        }
+        
+        answerVariants[mainWord] = variants
+        words.append(mainWord)
     }
     
     
@@ -94,7 +105,7 @@ class LessonExercise: NSObject {
     }
     
     func getTranslateVariantsForWord(word:Word) -> [String] {
-        var boundWords = [Word]()
+        /*var boundWords = [Word]()
         
         var translates = mainWord.translates!.allObjects as! [WordTranslates]
         for translate in translates {
@@ -106,10 +117,10 @@ class LessonExercise: NSObject {
         translates = mainWord.isTranslateFor!.allObjects as! [WordTranslates]
         for translate in translates {
             boundWords.append(translate.selfWord!)
-        }
+        }*/
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
-        variantsRequest.predicate = NSPredicate(format: "language == %@ AND pos == %@ AND NOT (self IN %@)", languageForTranslate, mainWord.pos!, boundWords)
+        variantsRequest.predicate = NSPredicate(format: "language == %@ AND pos == %@ AND isTranslateFor.selfWord != %@", languageForTranslate, mainWord.pos!, mainWord)
         variantsRequest.fetchLimit = 3
         variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
         
