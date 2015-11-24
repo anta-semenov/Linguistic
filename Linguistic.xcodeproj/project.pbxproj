@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2035821C04B70F00812249 /* UICollectionView+EnumCellIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2035811C04B70F00812249 /* UICollectionView+EnumCellIdentifiers.swift */; };
+		3A2035841C04B97300812249 /* UICollectionViewCellDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2035831C04B97300812249 /* UICollectionViewCellDelegateProtocol.swift */; };
+		3A2035861C04BA9800812249 /* RecordAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2035851C04BA9800812249 /* RecordAudioCell.swift */; };
 		3A24A1AD1C021598009F831D /* LessonBrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24A1AC1C021598009F831D /* LessonBrainTests.swift */; };
 		3A2E357F1BD9039700272405 /* YandexApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2E357E1BD9039700272405 /* YandexApiHelper.swift */; };
 		3A31F4611BD7F6060018FAA0 /* AddingWordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */; };
@@ -98,6 +101,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A2035811C04B70F00812249 /* UICollectionView+EnumCellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UICollectionView+EnumCellIdentifiers.swift"; path = "Utility/UICollectionView+EnumCellIdentifiers.swift"; sourceTree = "<group>"; };
+		3A2035831C04B97300812249 /* UICollectionViewCellDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewCellDelegateProtocol.swift; path = Utility/UICollectionViewCellDelegateProtocol.swift; sourceTree = "<group>"; };
+		3A2035851C04BA9800812249 /* RecordAudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordAudioCell.swift; path = ViewItems/RecordAudioCell.swift; sourceTree = "<group>"; };
 		3A24A1AC1C021598009F831D /* LessonBrainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonBrainTests.swift; sourceTree = "<group>"; };
 		3A2E357E1BD9039700272405 /* YandexApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YandexApiHelper.swift; path = Utility/YandexApiHelper.swift; sourceTree = "<group>"; };
 		3A31F4601BD7F6060018FAA0 /* AddingWordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingWordsTableViewController.swift; path = ViewControllers/AddingWordsTableViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 				3A47E08C1BD48AB30066D50C /* LanguagePickerCell.swift */,
 				3A438B8A1BDD3754002B5A98 /* AWTranslateCell.swift */,
 				3A4E3BBF1BED96EF00B08629 /* LanguageInOutTypeCell.swift */,
+				3A2035851C04BA9800812249 /* RecordAudioCell.swift */,
 			);
 			name = ViewItems;
 			sourceTree = "<group>";
@@ -274,6 +281,8 @@
 				3A4698011BD5F04A00A77665 /* NSUserDefaultsKeys.swift */,
 				3A31F4641BD88FB60018FAA0 /* UITableView+EnumsCellIdentifiers.swift */,
 				3A2E357E1BD9039700272405 /* YandexApiHelper.swift */,
+				3A2035811C04B70F00812249 /* UICollectionView+EnumCellIdentifiers.swift */,
+				3A2035831C04B97300812249 /* UICollectionViewCellDelegateProtocol.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -620,6 +629,7 @@
 				3ABCC5E41BD4D5030049F557 /* NSLocaleHelper.swift in Sources */,
 				3A9A2D0F1BDB963A00BA3FBB /* YAExercise.swift in Sources */,
 				3A47E08D1BD48AB30066D50C /* LanguagePickerCell.swift in Sources */,
+				3A2035821C04B70F00812249 /* UICollectionView+EnumCellIdentifiers.swift in Sources */,
 				3A4A95B31BBC92FA00313B2E /* Course.swift in Sources */,
 				3A8373CC1BD4AEDE007DFB35 /* UITableViewCellDelegateProtocol.swift in Sources */,
 				3A4AC6911BA5C51D002DB823 /* AppDelegate.swift in Sources */,
@@ -634,6 +644,8 @@
 				3A7601D81BDFCC1E00195D61 /* LinguisticProjectConstants.swift in Sources */,
 				3A4A95B51BBC92FA00313B2E /* WordTranslates.swift in Sources */,
 				3ACFF06C1BB2D0420052F9BF /* CoursesViewController.swift in Sources */,
+				3A2035861C04BA9800812249 /* RecordAudioCell.swift in Sources */,
+				3A2035841C04B97300812249 /* UICollectionViewCellDelegateProtocol.swift in Sources */,
 				3A4A95B91BBC9E9F00313B2E /* Language+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

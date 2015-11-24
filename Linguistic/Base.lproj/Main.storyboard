@@ -17,9 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xx9-uP-cQj">
-                                <rect key="frame" x="0.0" y="229.5" width="600" height="370.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionType" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-Lv-gti">
+                                <rect key="frame" x="0.0" y="64" width="600" height="18"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-M3-6c3">
+                                <rect key="frame" x="20" y="99" width="560" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-qX-Xqa">
+                                <rect key="frame" x="275" y="127" width="50" height="50"/>
+                                <animations/>
+                                <state key="normal" image="PlaySound"/>
+                                <connections>
+                                    <action selector="playAudioQuestion:" destination="v2E-e9-tQQ" eventType="touchUpInside" id="UcL-Uq-tNb"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="veY-15-8Em">
+                                <rect key="frame" x="20" y="193" width="560" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xx9-uP-cQj">
+                                <rect key="frame" x="0.0" y="230" width="600" height="370"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rew-vI-jgh">
                                     <size key="itemSize" width="120" height="50"/>
@@ -29,7 +61,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioAnswer" id="tQd-Sj-jqz" customClass="AudioAnswerCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="81.5" width="70" height="44"/>
+                                        <rect key="frame" x="0.0" y="82" width="70" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
@@ -62,7 +94,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textAnswer" id="eJ9-Vu-Zyy" customClass="TextAnswerCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="81.5" width="44" height="44"/>
+                                        <rect key="frame" x="80" y="82" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -91,7 +123,7 @@
                                             <outlet property="label" destination="GlL-m1-NDA" id="1oV-va-gpw"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recordAudio" id="2Np-q2-oIr" customClass="TextAnswerCell" customModule="Linguistic" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recordAudio" id="2Np-q2-oIr" customClass="RecordAudioCell" customModule="Linguistic" customModuleProvider="target">
                                         <rect key="frame" x="134" y="64" width="90" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -104,6 +136,7 @@
                                                     <state key="normal" title="Button" image="Micro"/>
                                                     <connections>
                                                         <action selector="recordAnswer:" destination="v2E-e9-tQQ" eventType="touchUpInside" id="nUW-yg-Gl4"/>
+                                                        <action selector="recordAudio:" destination="2Np-q2-oIr" eventType="touchUpInside" id="t3r-yx-Kch"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -123,37 +156,6 @@
                                     <outletCollection property="gestureRecognizers" destination="o4f-aW-urN" appends="YES" id="4iP-er-aCn"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionType" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-Lv-gti">
-                                <rect key="frame" x="0.0" y="64" width="600" height="18"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-M3-6c3">
-                                <rect key="frame" x="20" y="99" width="560" height="20.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-qX-Xqa">
-                                <rect key="frame" x="275" y="127" width="50" height="50"/>
-                                <animations/>
-                                <state key="normal" image="PlaySound"/>
-                                <connections>
-                                    <action selector="playAudioQuestion:" destination="v2E-e9-tQQ" eventType="touchUpInside" id="UcL-Uq-tNb"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="veY-15-8Em">
-                                <rect key="frame" x="20" y="193" width="560" height="29"/>
-                                <animations/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,9 +178,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3nn-Jc-jQM">
-                        <barButtonItem key="rightBarButtonItem" title="Next/Check Button" id="p83-uT-omd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next/Check Button" id="p83-uT-omd">
+                            <connections>
+                                <action selector="checkNextAction:" destination="v2E-e9-tQQ" id="zKo-Gh-GMl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="answersItems" destination="Xx9-uP-cQj" id="brK-Ti-Kff"/>
+                        <outlet property="audioQuestionButton" destination="yPi-qX-Xqa" id="N1B-x3-ywm"/>
                         <outlet property="nextCheckButton" destination="p83-uT-omd" id="R6h-75-oC2"/>
                         <outlet property="questionMissingNumber" destination="veY-15-8Em" id="E8f-po-6ud"/>
                         <outlet property="questionTextLabel" destination="dN8-M3-6c3" id="0Dy-hc-isa"/>
@@ -186,11 +194,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yj1-IV-9aW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="o4f-aW-urN">
-                    <connections>
-                        <action selector="tapAnswer:" destination="v2E-e9-tQQ" id="Go3-d5-0A4"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="o4f-aW-urN"/>
             </objects>
             <point key="canvasLocation" x="2588" y="-119"/>
         </scene>
@@ -212,10 +216,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="buttonsCell" id="Svb-U6-czC">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Svb-U6-czC" id="ZaC-f8-5fa">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-s3-feu">
@@ -248,10 +252,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="languageInOutTypeCell" id="NiS-0b-wya" customClass="LanguageInOutTypeCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NiS-0b-wya" id="ebI-a4-NEN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-ay-5J8">
@@ -280,10 +284,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="courseCell" id="0CB-9T-rRW" customClass="CourseItemCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="201.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="202" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CB-9T-rRW" id="R28-VF-iTD">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-Da-Vkc">
@@ -423,10 +427,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="translateCell" rowHeight="60" id="dnf-XB-uRn" customClass="AWTranslateCell" customModule="Linguistic" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="157.5" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="158" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnf-XB-uRn" id="cbj-7a-Fkx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6K-rz-rhm">
@@ -476,7 +480,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationLevel="1" indentationWidth="10" reuseIdentifier="exampleCell" textLabel="qXr-oy-b7g" detailTextLabel="NIH-ge-02d" style="IBUITableViewCellStyleSubtitle" id="ClZ-6d-hjh">
-                                <rect key="frame" x="0.0" y="217.5" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="218" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ClZ-6d-hjh" id="Khw-nb-GmL">
                                     <rect key="frame" x="0.0" y="0.0" width="561" height="59.5"/>
@@ -505,7 +509,7 @@
                                 <color key="backgroundColor" red="0.96247136780104714" green="0.96247136780104714" blue="0.96247136780104714" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="notFoundCell" textLabel="ueU-hi-tgo" style="IBUITableViewCellStyleDefault" id="V7a-TV-NdJ">
-                                <rect key="frame" x="0.0" y="277.5" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="278" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V7a-TV-NdJ" id="qTQ-eh-YPX">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -559,7 +563,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LoginCell" textLabel="IvO-Gn-onQ" style="IBUITableViewCellStyleDefault" id="DHe-VZ-DGL">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHe-VZ-DGL" id="M0l-cW-zcg">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -582,7 +586,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultLanguageCell" textLabel="cMa-4z-HXc" detailTextLabel="76Q-Mf-Iad" style="IBUITableViewCellStyleValue1" id="v1F-de-ZHN">
-                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1F-de-ZHN" id="4Bf-Lz-SAV">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -610,7 +614,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultLanguageConfirmSelectCell" textLabel="UUV-QO-brL" style="IBUITableViewCellStyleDefault" id="FgN-uq-lhW">
-                                        <rect key="frame" x="0.0" y="201.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="202" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FgN-uq-lhW" id="gPw-wc-SqQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -630,10 +634,10 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguagePickerCell" rowHeight="210" id="00o-Kx-Gzd" customClass="LanguagePickerCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245.5" width="600" height="210"/>
+                                        <rect key="frame" x="0.0" y="246" width="600" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00o-Kx-Gzd" id="bdL-lZ-ZiV">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="209.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQP-12-Hp2">

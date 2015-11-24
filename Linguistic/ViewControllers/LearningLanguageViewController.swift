@@ -38,8 +38,12 @@ class LearningLanguageViewController: UIViewController, UITableViewDataSource, U
         }
         
         switch segueIdentifier {
-        case .StartLesson: break
-        case .AddNewWords: if let destVC = segue.destinationViewController as? AddingWordsTableViewController {
+        case .StartLesson:
+            if let destVC = segue.destinationViewController as? LessonViewController {
+                destVC.language = self.language
+            }
+        case .AddNewWords:
+            if let destVC = segue.destinationViewController as? AddingWordsTableViewController {
                 destVC.language = self.language
                 destVC.context = language.managedObjectContext!
             }

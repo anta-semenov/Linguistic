@@ -72,6 +72,26 @@ final class LessonBrain: NSObject {
         super.init()
     }
     
+    //MARK: - State
+    var questionType: QuestionType {
+        get {
+            return currentExercise!.questionType
+        }
+    }
+    
+    var questionText: String {
+        get {
+            return currentExercise!.question
+        }
+    }
+    
+    var variants: [String] {
+        get {
+            return currentExercise!.answerVariants[currentExercise!.mainWord]!
+        }
+    }
+    
+    
     //MARK: - New exercise
     
     func nextExercise() {
