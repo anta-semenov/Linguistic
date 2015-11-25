@@ -80,14 +80,14 @@ class LessonExercise: NSObject {
     }
     
     func getVariantsForWord(word:Word) -> [String] {
-        /*var boundWords = [Word]()
+        var boundWords = [Word]()
         
         let translates = mainWord.translates!.allObjects as! [WordTranslates]
         for translate in translates {
             if translate.language! == languageForTranslate {
                 boundWords.append(translate.translate!)
             }
-        }*/
+        }
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
         variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NONE boundWords IN %@", mainWord.lang!, mainWord.pos!, mainWord.boundWords!)
