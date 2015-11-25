@@ -30,6 +30,13 @@ class WordTranslates: InitialManagedObject {
         translate.rating = Int16(rating)
         translate.language = translateWord.lang
         
+        if word.boundWords != nil {
+            word.boundWords = word.boundWords!.setByAddingObject(translateWord)
+        } else {
+            word.boundWords = NSSet(object: translateWord)
+        }
+        
+        
         return translate
     }
 }

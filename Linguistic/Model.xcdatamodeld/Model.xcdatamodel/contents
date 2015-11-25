@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Course" representedClassName=".Course" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -34,12 +34,27 @@
         <attribute name="transcription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="antonyms" inverseEntity="Word" syncable="YES"/>
+        <relationship name="boundWords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="boundWords" inverseEntity="Word" syncable="YES"/>
         <relationship name="childrens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="parent" inverseEntity="Word" syncable="YES"/>
         <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="words" inverseEntity="Exercise" syncable="YES"/>
         <relationship name="includeInCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="words" inverseEntity="Course" syncable="YES"/>
         <relationship name="isTranslateFor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WordTranslates" inverseName="translate" inverseEntity="WordTranslates" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="childrens" inverseEntity="Word" syncable="YES"/>
         <relationship name="translates" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WordTranslates" inverseName="selfWord" inverseEntity="WordTranslates" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="lang"/>
+                <index value="pos"/>
+                <index value="word"/>
+            </compoundIndex>
+        </compoundIndexes>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="lang"/>
+                <constraint value="pos"/>
+                <constraint value="word"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="WordTranslates" representedClassName=".WordTranslates" syncable="YES">
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,7 +66,7 @@
         <element name="Course" positionX="-416" positionY="-27" width="128" height="150"/>
         <element name="Exercise" positionX="-621" positionY="-216" width="128" height="165"/>
         <element name="Language" positionX="-182" positionY="153" width="128" height="105"/>
-        <element name="Word" positionX="-261" positionY="-153" width="128" height="255"/>
+        <element name="Word" positionX="-261" positionY="-153" width="128" height="270"/>
         <element name="WordTranslates" positionX="-54" positionY="-27" width="128" height="105"/>
     </elements>
 </model>

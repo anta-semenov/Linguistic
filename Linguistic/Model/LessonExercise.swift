@@ -90,7 +90,7 @@ class LessonExercise: NSObject {
         }
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
-        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NOT (isTranslateFor.selfWord IN %@)", mainWord.lang!, mainWord.pos!, boundWords)
+        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NOT (boundWords CONTAINS %@)", mainWord.lang!, mainWord.pos!, mainWord.boundWords!)
         variantsRequest.fetchLimit = 3
         variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
         
@@ -119,7 +119,7 @@ class LessonExercise: NSObject {
         }*/
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
-        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND isTranslateFor.selfWord != %@", languageForTranslate, mainWord.pos!, mainWord)
+        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NOT (self IN %@)", languageForTranslate, mainWord.pos!, mainWord.boundWords!)
         variantsRequest.fetchLimit = 3
         variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
         

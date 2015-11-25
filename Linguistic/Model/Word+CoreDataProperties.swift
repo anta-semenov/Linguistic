@@ -1,9 +1,9 @@
 //
 //  Word+CoreDataProperties.swift
-//  Linguistic
+//  
 //
-//  Created by Anton on 08/10/15.
-//  Copyright © 2015 Anton Semenov. All rights reserved.
+//  Created by Anton on 24/11/15.
+//
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -24,9 +24,10 @@ extension Word {
     @NSManaged var antonyms: NSSet?
     @NSManaged var childrens: NSSet?
     @NSManaged var exercises: NSSet?
+    @NSManaged var includeInCourses: NSSet?
     @NSManaged var isTranslateFor: NSSet?
     @NSManaged var parent: Word?
     @NSManaged var translates: NSSet?
-    @NSManaged var includeInCourses: NSSet?
+    @NSManaged var boundWords: NSSet?
 
 }
