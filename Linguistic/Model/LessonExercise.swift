@@ -90,7 +90,7 @@ class LessonExercise: NSObject {
         }
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
-        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NOT (boundWords CONTAINS %@)", mainWord.lang!, mainWord.pos!, mainWord.boundWords!)
+        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NONE boundWords IN %@", mainWord.lang!, mainWord.pos!, mainWord.boundWords!)
         variantsRequest.fetchLimit = 3
         variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
         
