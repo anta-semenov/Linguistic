@@ -30,6 +30,8 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
         answersItems.delegate = self
         answersItems.dataSource = self
         
+        questionMissingNumber.hidden = true
+        
         next()
     }
     
@@ -58,7 +60,14 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     //MARK: - Lesson controls staff
     func next() {
+        checkNextState = 0
+        nextCheckButton.title = "Check"
+        
         lessonBrain.nextExercise()
+        
+        
+        questionTextLabel.text = lessonBrain.questionText
+        
         
         switch lessonBrain.questionOutputType! {
         case .Audio:
