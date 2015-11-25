@@ -158,7 +158,7 @@ enum QuestionType {
     case QuestionTypeCompletePhrase //выбрать правильный вариант окончания фразы (может быть ответ диалога)
     
     static let allValues = [QuestionTypeChooseTranslate,QuestionTypeCompileTranslate,QuestionTypeFillMissings,QuestionTypeInsertMissings,QuestionTypeCompilePhrase,QuestionTypeCompletePhrase]
-    static let from0to20ProgressValues = [QuestionTypeChooseTranslate,QuestionTypeChooseBackTranslate]
+    static let from0to20ProgressValues = [QuestionTypeChooseTranslate, QuestionTypeChooseBackTranslate]
 }
 
 enum InputType {

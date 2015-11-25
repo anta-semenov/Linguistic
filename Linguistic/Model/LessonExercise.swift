@@ -80,17 +80,8 @@ class LessonExercise: NSObject {
     }
     
     func getVariantsForWord(word:Word) -> [String] {
-        /*var boundWords = [Word]()
-        
-        let translates = mainWord.translates!.allObjects as! [WordTranslates]
-        for translate in translates {
-            if translate.language! == languageForTranslate {
-                boundWords.append(translate.translate!)
-            }
-        }*/
-        
         let variantsRequest = NSFetchRequest(entityName: "Word")
-        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NOT (self IN SUBQUERY( %@))", mainWord.lang!, mainWord.pos!, mainWord)
+        variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND SUBQUERY(isTranslateFor.selfWord, $x, ANY $x.isTranslateFor.selfWord == %@).@count == 0", mainWord.lang!, mainWord.pos!, mainWord)
         variantsRequest.fetchLimit = 3
         variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
         
@@ -104,19 +95,6 @@ class LessonExercise: NSObject {
     }
     
     func getTranslateVariantsForWord(word:Word) -> [String] {
-        /*var boundWords = [Word]()
-        
-        var translates = mainWord.translates!.allObjects as! [WordTranslates]
-        for translate in translates {
-            if translate.language! == languageForTranslate {
-                boundWords.append(translate.translate!)
-            }
-        }
-        
-        translates = mainWord.isTranslateFor!.allObjects as! [WordTranslates]
-        for translate in translates {
-            boundWords.append(translate.selfWord!)
-        }*/
         
         let variantsRequest = NSFetchRequest(entityName: "Word")
         variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NONE isTranslateFor.selfWord == %@", languageForTranslate, mainWord.pos!, mainWord)
