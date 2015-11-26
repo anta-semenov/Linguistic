@@ -29,6 +29,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
         
         answersItems.delegate = self
         answersItems.dataSource = self
+        answersItems.allowsSelection = true
         
         questionMissingNumber.hidden = true
         
@@ -137,6 +138,36 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
         default: break
         }*/
     }
+    
+    //MARK: - UICollectionView Layout Delegate
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        switch lessonBrain.answerInputType! {
+        case .TextChoise:
+            return collectionView.frame.width/2
+        case .AudioRecord:
+            return 0.0
+        case .AudioChoise:
+            return collectionView.frame.width/6
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        switch lessonBrain.answerInputType! {
+        case .AudioRecord:
+            let cvWidth = collectionView.frame.width
+            let cvHeight = collectionView.frame.height
+            let cellWidth = CGFloat(90.0)
+            let cellHeight = CGFloat(80.0)
+            let horizontalMargin = (cvWidth - cellWidth)/2
+            let verticalMargin = (cvHeight - cellHeight)/2
+            return UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin)
+        default:
+            let cvWidth = collectionView.frame.width
+            let cvHeight = collectionView.frame.height
+            return UIEdgeInsets(top: cvHeight*0.05, left: cvWidth*0.05, bottom: cvHeight*0.05, right: cvWidth*0.05)
+        }
+    }
+    
 }
 
 

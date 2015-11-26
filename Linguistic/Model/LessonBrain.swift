@@ -164,7 +164,7 @@ enum QuestionType {
 enum InputType {
     case AudioChoise, AudioRecord, TextChoise
     
-    static let allValues = [AudioChoise, AudioRecord, TextChoise]
+    static let allValues = [AudioRecord]
 }
 
 enum OutputType {
