@@ -1,0 +1,111 @@
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "1jj-Ma-b37"; */
+"1jj-Ma-b37.title" = "Настройки";
+
+/* Class = "UILabel"; text = "QuestionType"; ObjectID = "1k5-Lv-gti"; */
+"1k5-Lv-gti.text" = "QuestionType";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "76Q-Mf-Iad"; */
+"76Q-Mf-Iad.text" = "Детали";
+
+/* Class = "UIViewController"; title = "Learning language"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Learning language";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FSw-4c-Ubn"; */
+"FSw-4c-Ubn.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "T"; ObjectID = "GlL-m1-NDA"; */
+"GlL-m1-NDA.text" = "T";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "IvO-Gn-onQ"; */
+"IvO-Gn-onQ.text" = "Логин";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "MBO-so-hvh"; */
+"MBO-so-hvh.normalTitle" = "Зарегистрироваться";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "MbX-Is-X3r"; */
+"MbX-Is-X3r.placeholder" = "Пароль";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "NIH-ge-02d"; */
+"NIH-ge-02d.text" = "Subtitle";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "OSl-I3-bYO"; */
+"OSl-I3-bYO.title" = "Login";
+
+/* Class = "UILabel"; text = "ChoosenLanguage"; ObjectID = "UUV-QO-brL"; */
+"UUV-QO-brL.text" = "ChoosenLanguage";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "V4i-Ij-xgL"; */
+"V4i-Ij-xgL.placeholder" = "Имя пользователя";
+
+/* Class = "UISearchBar"; placeholder = "Text your word here"; ObjectID = "XxZ-5Z-yHk"; */
+"XxZ-5Z-yHk.placeholder" = "Введите слово для поиска";
+
+/* Class = "UISearchBar"; XxZ-5Z-yHk.scopeButtonTitles[0] = "Title"; ObjectID = "XxZ-5Z-yHk"; */
+"XxZ-5Z-yHk.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; XxZ-5Z-yHk.scopeButtonTitles[1] = "Title"; ObjectID = "XxZ-5Z-yHk"; */
+"XxZ-5Z-yHk.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UIViewController"; title = "Learning languages"; ObjectID = "Ydy-St-fdR"; */
+"Ydy-St-fdR.title" = "Learning languages";
+
+/* Class = "UITabBarItem"; title = "Lessons"; ObjectID = "YhC-gq-QQe"; */
+"YhC-gq-QQe.title" = "Lessons";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "aj0-cM-Wml"; */
+"aj0-cM-Wml.text" = "Title";
+
+/* Class = "UILabel"; text = "Default language"; ObjectID = "cMa-4z-HXc"; */
+"cMa-4z-HXc.text" = "Основной язык";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "cWc-s3-feu"; */
+"cWc-s3-feu.normalTitle" = "Начать урок";
+
+/* Class = "UILabel"; text = "Question text"; ObjectID = "dN8-M3-6c3"; */
+"dN8-M3-6c3.text" = "Question text";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gHl-OI-AvQ"; */
+"gHl-OI-AvQ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Add words"; ObjectID = "hVR-DP-tvM"; */
+"hVR-DP-tvM.normalTitle" = "Добавить слово";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "o6E-YI-NA1"; */
+"o6E-YI-NA1.normalTitle" = "Log In";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "oFb-Da-Vkc"; */
+"oFb-Da-Vkc.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Next/Check Button"; ObjectID = "p83-uT-omd"; */
+"p83-uT-omd.title" = "Next/Check Button";
+
+/* Class = "UITableViewController"; title = "Adding Words"; ObjectID = "q8b-6b-Bls"; */
+"q8b-6b-Bls.title" = "Adding Words";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "qXr-oy-b7g"; */
+"qXr-oy-b7g.text" = "Title";
+
+/* Class = "UISegmentedControl"; uHW-ay-5J8.segmentTitles[0] = "Audio"; ObjectID = "uHW-ay-5J8"; */
+"uHW-ay-5J8.segmentTitles[0]" = "Устно";
+
+/* Class = "UISegmentedControl"; uHW-ay-5J8.segmentTitles[1] = "Writing"; ObjectID = "uHW-ay-5J8"; */
+"uHW-ay-5J8.segmentTitles[1]" = "Письменно";
+
+/* Class = "UISegmentedControl"; uHW-ay-5J8.segmentTitles[2] = "Both"; ObjectID = "uHW-ay-5J8"; */
+"uHW-ay-5J8.segmentTitles[2]" = "Оба";
+
+/* Class = "UILabel"; text = "Word not found"; ObjectID = "ueU-hi-tgo"; */
+"ueU-hi-tgo.text" = "Слово не найдено";
+
+/* Class = "UIViewController"; title = "Lesson"; ObjectID = "v2E-e9-tQQ"; */
+"v2E-e9-tQQ.title" = "Lesson";
+
+/* Class = "UISegmentedControl"; veY-15-8Em.segmentTitles[0] = "First"; ObjectID = "veY-15-8Em"; */
+"veY-15-8Em.segmentTitles[0]" = "First";
+
+/* Class = "UISegmentedControl"; veY-15-8Em.segmentTitles[1] = "Second"; ObjectID = "veY-15-8Em"; */
+"veY-15-8Em.segmentTitles[1]" = "Second";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "wTI-xC-ahK"; */
+"wTI-xC-ahK.title" = "Title";

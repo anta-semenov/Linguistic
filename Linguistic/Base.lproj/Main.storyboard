@@ -17,41 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionType" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-Lv-gti">
-                                <rect key="frame" x="0.0" y="64" width="600" height="18"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="z96-jR-4pc">
+                                <rect key="frame" x="20" y="80" width="560" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionType" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-Lv-gti">
+                                        <rect key="frame" x="233" y="0.0" width="94" height="18"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mht-tg-cfb">
+                                        <rect key="frame" x="220" y="34" width="120" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-M3-6c3">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-qX-Xqa">
+                                                <rect key="frame" x="35" y="32" width="50" height="50"/>
+                                                <animations/>
+                                                <state key="normal" image="PlaySound"/>
+                                                <connections>
+                                                    <action selector="playAudioQuestion:" destination="v2E-e9-tQQ" eventType="touchUpInside" id="UcL-Uq-tNb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="veY-15-8Em">
+                                        <rect key="frame" x="189" y="132" width="182" height="29"/>
+                                        <animations/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                            <segment title=""/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-M3-6c3">
-                                <rect key="frame" x="20" y="99" width="560" height="24"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPi-qX-Xqa">
-                                <rect key="frame" x="275" y="131" width="50" height="50"/>
-                                <animations/>
-                                <state key="normal" image="PlaySound"/>
-                                <connections>
-                                    <action selector="playAudioQuestion:" destination="v2E-e9-tQQ" eventType="touchUpInside" id="UcL-Uq-tNb"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="veY-15-8Em">
-                                <rect key="frame" x="20" y="197" width="560" height="29"/>
-                                <animations/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xx9-uP-cQj">
-                                <rect key="frame" x="0.0" y="233" width="600" height="367"/>
+                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rew-vI-jgh">
                                     <size key="itemSize" width="120" height="50"/>
@@ -61,16 +73,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audioAnswer" id="tQd-Sj-jqz" customClass="AudioAnswerCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="18" width="70" height="44"/>
+                                        <rect key="frame" x="0.0" y="18" width="98" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="98" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2T-gm-8jR">
-                                                    <rect key="frame" x="26" y="0.0" width="44" height="42"/>
+                                                    <rect key="frame" x="48" y="-3" width="50" height="50"/>
                                                     <animations/>
-                                                    <state key="normal" title="Button" image="PlaySound"/>
+                                                    <state key="normal" image="PlaySound"/>
                                                     <connections>
                                                         <action selector="playAudio:" destination="tQd-Sj-jqz" eventType="touchUpInside" id="8vW-Ch-mfl"/>
                                                     </connections>
@@ -83,28 +95,22 @@
                                         <color key="backgroundColor" red="0.89633780539999997" green="0.89633780539999997" blue="0.89633780539999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="x2T-gm-8jR" secondAttribute="bottom" constant="-6" id="80p-e0-Mvl"/>
-                                            <constraint firstItem="x2T-gm-8jR" firstAttribute="top" secondItem="tQd-Sj-jqz" secondAttribute="top" id="Bu4-uM-qT8"/>
-                                            <constraint firstItem="x2T-gm-8jR" firstAttribute="leading" secondItem="tQd-Sj-jqz" secondAttribute="leadingMargin" constant="18" id="HUb-kX-gk0"/>
+                                            <constraint firstItem="x2T-gm-8jR" firstAttribute="centerY" secondItem="tQd-Sj-jqz" secondAttribute="centerY" id="KnU-ue-sgE"/>
                                             <constraint firstAttribute="trailing" secondItem="x2T-gm-8jR" secondAttribute="trailing" id="kT5-iE-ewr"/>
                                         </constraints>
-                                        <size key="customSize" width="70" height="44"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="o4f-aW-urN" appends="YES" id="ASW-3F-yC7"/>
-                                            <outletCollection property="gestureRecognizers" destination="o4f-aW-urN" appends="YES" id="57f-nq-1nm"/>
-                                        </connections>
+                                        <size key="customSize" width="98" height="44"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="textAnswer" id="eJ9-Vu-Zyy" customClass="TextAnswerCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="18" width="44" height="44"/>
+                                        <rect key="frame" x="108" y="18" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlL-m1-NDA">
-                                                    <rect key="frame" x="8" y="11" width="28" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlL-m1-NDA">
+                                                    <rect key="frame" x="17.5" y="12.5" width="10" height="19.5"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -113,11 +119,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.89633780541012209" green="0.89633780541012209" blue="0.89633780541012209" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="GlL-m1-NDA" firstAttribute="centerX" secondItem="eJ9-Vu-Zyy" secondAttribute="centerX" id="Ney-t3-CcN"/>
                                             <constraint firstItem="GlL-m1-NDA" firstAttribute="centerY" secondItem="eJ9-Vu-Zyy" secondAttribute="centerY" id="Oyw-4p-3gg"/>
-                                            <constraint firstItem="GlL-m1-NDA" firstAttribute="leading" secondItem="eJ9-Vu-Zyy" secondAttribute="leadingMargin" id="Toc-OI-tKb"/>
-                                            <constraint firstItem="GlL-m1-NDA" firstAttribute="trailing" secondItem="eJ9-Vu-Zyy" secondAttribute="trailingMargin" id="xbf-N7-z4p"/>
                                         </constraints>
                                         <size key="customSize" width="44" height="44"/>
                                         <connections>
@@ -125,7 +130,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recordAudio" id="2Np-q2-oIr" customClass="RecordAudioCell" customModule="Linguistic" customModuleProvider="target">
-                                        <rect key="frame" x="134" y="0.0" width="90" height="80"/>
+                                        <rect key="frame" x="162" y="0.0" width="90" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="80"/>
@@ -152,28 +157,17 @@
                                         <size key="customSize" width="90" height="80"/>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="o4f-aW-urN" appends="YES" id="4iP-er-aCn"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="veY-15-8Em" firstAttribute="top" secondItem="yPi-qX-Xqa" secondAttribute="bottom" constant="16" id="4Hg-7T-2xu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="veY-15-8Em" secondAttribute="trailing" id="6ZO-aT-LXR"/>
-                            <constraint firstItem="1k5-Lv-gti" firstAttribute="leading" secondItem="BMQ-IH-7wG" secondAttribute="leading" id="6l8-Qn-7zZ"/>
-                            <constraint firstItem="yPi-qX-Xqa" firstAttribute="top" secondItem="dN8-M3-6c3" secondAttribute="bottom" constant="8" symbolic="YES" id="H8I-wC-ebE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z96-jR-4pc" secondAttribute="trailing" id="5tU-jl-IKH"/>
+                            <constraint firstItem="z96-jR-4pc" firstAttribute="leading" secondItem="BMQ-IH-7wG" secondAttribute="leadingMargin" id="L8Y-QK-bnz"/>
                             <constraint firstItem="lcM-py-OXx" firstAttribute="top" secondItem="Xx9-uP-cQj" secondAttribute="bottom" constant="-44" id="R8g-xk-qit"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="dN8-M3-6c3" secondAttribute="leading" id="RUq-04-LfD"/>
                             <constraint firstAttribute="trailing" secondItem="Xx9-uP-cQj" secondAttribute="trailing" id="Rbf-b4-MKg"/>
-                            <constraint firstItem="dN8-M3-6c3" firstAttribute="top" secondItem="1k5-Lv-gti" secondAttribute="bottom" constant="17" id="UNf-s2-aYH"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="veY-15-8Em" secondAttribute="leading" id="dFc-V7-tKA"/>
-                            <constraint firstItem="1k5-Lv-gti" firstAttribute="top" secondItem="q99-jx-VsA" secondAttribute="bottom" id="kje-jx-tLt"/>
-                            <constraint firstItem="1k5-Lv-gti" firstAttribute="centerX" secondItem="BMQ-IH-7wG" secondAttribute="centerX" id="lv4-cK-PbT"/>
-                            <constraint firstItem="Xx9-uP-cQj" firstAttribute="top" secondItem="veY-15-8Em" secondAttribute="bottom" constant="8" id="r29-P2-n7N"/>
-                            <constraint firstItem="yPi-qX-Xqa" firstAttribute="centerX" secondItem="BMQ-IH-7wG" secondAttribute="centerX" id="sSX-Wc-vkc"/>
-                            <constraint firstItem="dN8-M3-6c3" firstAttribute="centerX" secondItem="BMQ-IH-7wG" secondAttribute="centerX" id="upr-HL-9iJ"/>
+                            <constraint firstItem="Xx9-uP-cQj" firstAttribute="top" secondItem="z96-jR-4pc" secondAttribute="bottom" constant="24" id="iyb-I1-ct8"/>
+                            <constraint firstItem="z96-jR-4pc" firstAttribute="top" secondItem="q99-jx-VsA" secondAttribute="bottom" constant="16" id="nQf-6e-u4r"/>
                             <constraint firstItem="Xx9-uP-cQj" firstAttribute="leading" secondItem="BMQ-IH-7wG" secondAttribute="leading" id="v8W-y0-3Fl"/>
                         </constraints>
                     </view>
@@ -194,7 +188,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yj1-IV-9aW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="o4f-aW-urN"/>
             </objects>
             <point key="canvasLocation" x="2588" y="-119"/>
         </scene>
@@ -223,18 +216,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-s3-feu">
-                                                    <rect key="frame" x="16" y="1" width="51" height="41"/>
+                                                    <rect key="frame" x="16" y="5" width="38" height="32"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Start"/>
                                                     <connections>
                                                         <segue destination="v2E-e9-tQQ" kind="show" identifier="StartLesson" id="ZPt-Nn-z2r"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-DP-tvM">
-                                                    <rect key="frame" x="469" y="2" width="115" height="41"/>
+                                                    <rect key="frame" x="503" y="6.5" width="81" height="32"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Add words"/>
                                                     <connections>
                                                         <segue destination="q8b-6b-Bls" kind="show" identifier="AddNewWords" id="Ife-iP-Qqe"/>
@@ -245,6 +238,7 @@
                                             <constraints>
                                                 <constraint firstItem="cWc-s3-feu" firstAttribute="leading" secondItem="ZaC-f8-5fa" secondAttribute="leadingMargin" constant="8" id="3OZ-yX-Lvm"/>
                                                 <constraint firstItem="hVR-DP-tvM" firstAttribute="centerY" secondItem="ZaC-f8-5fa" secondAttribute="centerY" id="8Gh-IL-yty"/>
+                                                <constraint firstItem="hVR-DP-tvM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cWc-s3-feu" secondAttribute="trailing" constant="8" symbolic="YES" id="9XA-b0-2yu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hVR-DP-tvM" secondAttribute="trailing" constant="8" id="KVV-au-hr0"/>
                                                 <constraint firstItem="cWc-s3-feu" firstAttribute="centerY" secondItem="ZaC-f8-5fa" secondAttribute="centerY" id="khO-x4-LgK"/>
                                             </constraints>
@@ -361,12 +355,12 @@
                                 <animations/>
                                 <items>
                                     <navigationItem id="hTX-c0-Id9">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="15p-Ep-Bjo">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="15p-Ep-Bjo">
                                             <connections>
                                                 <action selector="cancel:" destination="V2E-yn-bje" id="hwQ-h4-BF6"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="1y3-8i-Q2y">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="1y3-8i-Q2y">
                                             <connections>
                                                 <action selector="addLanguage:" destination="V2E-yn-bje" id="QU5-JQ-d90"/>
                                             </connections>
@@ -433,20 +427,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6K-rz-rhm">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6K-rz-rhm">
                                             <rect key="frame" x="8" y="8" width="41" height="41"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="41" id="SKH-Oi-DnM"/>
                                                 <constraint firstAttribute="height" constant="41" id="VeW-Kt-ijN"/>
                                             </constraints>
-                                            <state key="normal" image="PlusInCircle"/>
                                             <connections>
                                                 <action selector="add:" destination="dnf-XB-uRn" eventType="touchUpInside" id="VXP-V5-OIw"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHl-OI-AvQ">
-                                            <rect key="frame" x="57" y="8" width="42" height="21"/>
+                                            <rect key="frame" x="57" y="8" width="42" height="20.5"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,7 +529,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="wTI-xC-ahK"/>
+                    <navigationItem key="navigationItem" id="wTI-xC-ahK"/>
                     <connections>
                         <outlet property="tableView" destination="ahw-pO-9MW" id="lUk-3B-Kp0"/>
                     </connections>
@@ -791,7 +784,7 @@
                                 <segue destination="1jj-Ma-b37" kind="show" identifier="showSettings" id="wqm-l1-0HZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Plus" id="80u-jV-F7T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="80u-jV-F7T">
                             <connections>
                                 <segue destination="V2E-yn-bje" kind="popoverPresentation" identifier="addLanguage" popoverAnchorBarButtonItem="80u-jV-F7T" id="i9c-7z-Sox">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -829,8 +822,6 @@
     <resources>
         <image name="Micro" width="50" height="50"/>
         <image name="PlaySound" width="50" height="50"/>
-        <image name="Plus" width="25" height="25"/>
-        <image name="PlusInCircle" width="25" height="25"/>
         <image name="Preference" width="25" height="25"/>
     </resources>
 </document>

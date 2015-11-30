@@ -34,6 +34,9 @@ class LessonExercise: NSObject {
         } else {
             answerIsCorrect = false
         }
+        updateWordProgress(mainWord)
+        
+        CoreDataHelper.save(context)
         
         return answerIsCorrect!
     }
@@ -75,6 +78,7 @@ class LessonExercise: NSObject {
             variants.appendContentsOf(getVariantsForWord(mainWord))
         }
         
+        variants.sortInPlace({(left:String, right:String) -> Bool in return arc4random()%2 == 0})
         answerVariants[mainWord] = variants
         words.append(mainWord)
     }
@@ -83,7 +87,7 @@ class LessonExercise: NSObject {
         let variantsRequest = NSFetchRequest(entityName: "Word")
         variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND SUBQUERY(isTranslateFor.selfWord, $x, ANY $x.isTranslateFor.selfWord == %@).@count == 0", mainWord.lang!, mainWord.pos!, mainWord)
         variantsRequest.fetchLimit = 3
-        variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
+        variantsRequest.sortDescriptors = [NSSortDescriptor(key: "randomOrder", ascending: true)]
         
         let requestResult = CoreDataHelper.executeFetchRequest(variantsRequest, inContext: context) as! [Word]
         var result = [String]()
@@ -99,7 +103,7 @@ class LessonExercise: NSObject {
         let variantsRequest = NSFetchRequest(entityName: "Word")
         variantsRequest.predicate = NSPredicate(format: "lang == %@ AND pos == %@ AND NONE isTranslateFor.selfWord == %@", languageForTranslate, mainWord.pos!, mainWord)
         variantsRequest.fetchLimit = 3
-        variantsRequest.sortDescriptors = [NSSortDescriptor(key: "lastUsageTime", ascending: true)]
+        variantsRequest.sortDescriptors = [NSSortDescriptor(key: "randomOrder", ascending: true)]
         
         let requestResult = CoreDataHelper.executeFetchRequest(variantsRequest, inContext: context) as! [Word]
         var result = [String]()
@@ -111,7 +115,16 @@ class LessonExercise: NSObject {
     }
     
     func updateWordProgress(word:Word) {
+        var point = 0
+        switch answerIsCorrect! {
+        case true: point = 2
+        case false: point = -1
+        }
         
+        word.learnProgress += Int16(point * bonusPenaltyCoefficientForProgressLevel(Int(word.learnProgress)))
+        word.lastUsageTime = NSDate()
+        word.nextUsageTime = word.lastUsageTime!.dateByAddingTimeInterval(timeIntervalForProgressLevel(Int(word.learnProgress)))
+        word.randomOrder = Int16(arc4random()%200)
     }
     
     func getTranslateAccidently(translates:[WordTranslates]) -> WordTranslates {
@@ -132,7 +145,7 @@ class LessonExercise: NSObject {
     
     //MARK: - Constant's Staff
     
-    func timeIntervalForProgresLevel(progresLevel: Int) -> NSTimeInterval {
+    func timeIntervalForProgressLevel(progresLevel: Int) -> NSTimeInterval {
         var interval: NSTimeInterval = 0
         
         switch progresLevel {
@@ -150,7 +163,7 @@ class LessonExercise: NSObject {
         return interval
     }
     
-    func bonusPenaltyCoefficientForProgresLevel(progresLevel: Int) -> Int {
+    func bonusPenaltyCoefficientForProgressLevel(progresLevel: Int) -> Int {
         switch progresLevel {
         case 0..<20: return 4
         case 20..<50: return 3

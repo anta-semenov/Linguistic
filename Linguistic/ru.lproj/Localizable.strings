@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Linguistic
+
+  Created by Anton on 29/11/15.
+  Copyright © 2015 Anton Semenov. All rights reserved.
+*/
+
+/* */
+"QuestionTypeChooseTranslate" = "Выберите перевод";
+
+/* */
+"QuestionTypeChooseBackTranslate" = "Выберите перевод";
+
+"QuestionTypeCompileTranslate" = "";
+
+"QuestionTypeFillMissings" = "Заполните пропуски";
+
+"QuestionTypeInsertMissings" = "Заполните пропуски";
+
+"QuestionTypeCompilePhrase" = "Выберите слова в правильном порядке";
+
+"QuestionTypeCompletePhrase" = "Выберите правильное продолжение фразы";
+
+"ConfirmLanguageDeletion" = "Подтвердите удаление";
+
+"ConfirmLanguageDeletionMessage" = "Удаление словаря приведет к удалению всего вашего прогресса в словах и упражнениях. Это действие невозможно отменить";
+
+"UserDidntAnswer" = "Пожалуйста выберите ответ";
+
+"LessonCorrectAnswer" = "Вы ответили правильно";
+
+"LessonUncorrectAnswer" = "Вы ошиблись";
+
+"LessonNextButtonTitle" = "Следующий";
+
+"LessonCheckButtonTitle" = "Проверить";
+
+"OkButton" = "Ок";
+
+"CancelButton" = "Отмена";

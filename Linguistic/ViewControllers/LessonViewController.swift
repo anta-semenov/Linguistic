@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import CoreData
 
 class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewCellDelegate {
@@ -21,6 +22,7 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
     var lessonBrain: LessonBrain!
     var checkNextState = 0
     var language: Language!
+    var answersForMissingNumber = [Int:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +31,40 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
         
         answersItems.delegate = self
         answersItems.dataSource = self
-        answersItems.allowsSelection = true
+        //answersItems.allowsSelection = true
         
         questionMissingNumber.hidden = true
+        questionMissingNumber.selectedSegmentIndex = 0
         
         next()
     }
     
     @IBAction func playAudioQuestion(sender: UIButton) {
+        playPhrase(lessonBrain.questionText)
     }
     
     
     @IBAction func checkNextAction(sender: UIBarButtonItem) {
-        
+        if checkNextState == 0 {
+            check()
+        } else {
+            next()
+        }
     }
     
     @IBAction func recordAnswer(sender: UIButton) {
         //write and then play recorded audio
     }
     
+    func playPhrase(phrase: String) {
+        let voice = AVSpeechSynthesisVoice(language: language.code)
+        let utterance = AVSpeechUtterance(string: phrase)
+        utterance.voice = voice
+        utterance.pitchMultiplier = Float(arc4random()%5) + 1.0
+        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speakUtterance(utterance)
+    }
     
     /*
     // MARK: - Navigation
@@ -62,13 +79,12 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
     //MARK: - Lesson controls staff
     func next() {
         checkNextState = 0
-        nextCheckButton.title = "Check"
+        nextCheckButton.title = NSLocalizedString("LessonCheckButtonTitle", value: "Check", comment: "Check button title")
         
         lessonBrain.nextExercise()
         
-        
         questionTextLabel.text = lessonBrain.questionText
-        
+        questionTypeLabel.text = NSLocalizedString("\(lessonBrain.currentExercise!.questionType)", comment: "")
         
         switch lessonBrain.questionOutputType! {
         case .Audio:
@@ -79,11 +95,25 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
             audioQuestionButton.hidden = true
         }
         
+        switch lessonBrain.answerInputType! {
+        case .AudioRecord: answersItems.allowsSelection = false
+        default: answersItems.allowsSelection = true
+        }
         answersItems.reloadData()
     }
     
     func check() {
+        if answersForMissingNumber.isEmpty {
+            self.showAlert("", message: NSLocalizedString("UserDidntAnswer", value:"You haven't given any anwer yet", comment:"User didn't get any answer"))
+            return
+        }
         
+        let answerIsCorrect = lessonBrain.checkAnswer(answersForMissingNumber[0]!)
+        
+        questionTypeLabel.text = answerIsCorrect ? NSLocalizedString("LessonCorrectAnswer", comment:"User answered right") : NSLocalizedString("LessonUncorrectAnswer", comment:"User made a mistake")
+        
+        checkNextState = 1
+        nextCheckButton.title = NSLocalizedString("LessonNextButtonTitle", value: "Next", comment: "Next button title")
     }
     
     
@@ -123,31 +153,52 @@ class LessonViewController: UIViewController, UICollectionViewDelegateFlowLayout
     }
     
     //MARK: - CollectionView Delegate
-    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        answersForMissingNumber[questionMissingNumber.selectedSegmentIndex] = lessonBrain.variants[indexPath.item]
+    }
     
     //MARK: - CollectionViewItem Delegate
     
     
     //MARK: - CollectionViewCell Delegate
     func cellPerformAction<T : UICollectionViewCell>(cell: T) {
-        /*switch lessonBrain.answerInputType! {
+        switch lessonBrain.answerInputType! {
         case .AudioChoise:
-            let indexPath =
+            let indexPath = answersItems.indexPathForCell(cell)
+            playPhrase(lessonBrain.variants[indexPath!.item])
         case .AudioRecord:
-            
+            break
         default: break
-        }*/
+        }
     }
     
     //MARK: - UICollectionView Layout Delegate
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         switch lessonBrain.answerInputType! {
         case .TextChoise:
-            return collectionView.frame.width/2
+            return collectionView.frame.width*0.8
         case .AudioRecord:
             return 0.0
         case .AudioChoise:
             return collectionView.frame.width/6
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        guard lessonBrain.answerInputType != nil else {
+            let layout = collectionViewLayout as! UICollectionViewFlowLayout
+            return layout.itemSize
+        }
+        switch lessonBrain.answerInputType! {
+        case .TextChoise:
+            let label = UILabel()
+            label.text = lessonBrain.variants[indexPath.item]
+            let rect = label.textRectForBounds(CGRect(x: 0.0, y: 0.0, width: min(collectionView.frame.width*0.8, 400)-16.0, height: 1000.0), limitedToNumberOfLines: 0)
+            return CGSize(width: rect.width + 16, height: rect.height + 16.0)
+        case .AudioRecord:
+            return CGSize(width: 90.0, height: 80.0)
+        case .AudioChoise:
+            return CGSize(width: 98.0, height: 44.0)
         }
     }
     

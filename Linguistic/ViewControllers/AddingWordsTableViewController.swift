@@ -23,10 +23,12 @@ class AddingWordsTableViewController: UITableViewController, UISearchBarDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sourceLanguage = "en"//language.code
+        sourceLanguage = language.code
         destinationLanguage = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKeys.MainLanguage.rawValue)!
         
         yandexApiHelper = YandexApiHelper(sourceLanguage: sourceLanguage, destinationLanguage: destinationLanguage)
+        
+        self.navigationController?.navigationItem.title = language.name
         
         //tableView.rowHeight = UITableViewAutomaticDimension
         

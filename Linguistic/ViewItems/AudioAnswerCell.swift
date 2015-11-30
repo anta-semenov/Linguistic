@@ -8,11 +8,16 @@
 
 import UIKit
 
-class AudioAnswerCell: UICollectionViewCell {
+final class AudioAnswerCell: UICollectionViewCell {
     var delegate: UICollectionViewCellDelegate?
     
     @IBAction func playAudio(sender: UIButton) {
         delegate?.cellPerformAction(self)
     }
     
+    override var selected: Bool {
+        didSet {
+            self.backgroundColor = selected ? UIColor.lgLessonSelectItemColor(): UIColor.lgLessonItemColor()
+        }
+    }
 }

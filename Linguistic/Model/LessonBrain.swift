@@ -125,7 +125,7 @@ final class LessonBrain: NSObject {
         var minRate = 9999999
         
         for variant in variants {
-            let rate = statistic.getRatioForKey(variant) * Int(arc4random()%20)
+            let rate = statistic.getRatioForKey(variant) * Int(arc4random()%10)
             if rate < minRate {
                 result = variant
                 minRate = rate
@@ -137,7 +137,13 @@ final class LessonBrain: NSObject {
     //MARK: - Checking
     
     func checkAnswer(answer: String) -> Bool {
-        return currentExercise!.checkAnswer(answer)
+        let answerIsCorrect = currentExercise!.checkAnswer(answer)
+        //update statistic
+        statistic.incrementKey(answerInputType!, correct: answerIsCorrect)
+        statistic.incrementKey(questionOutputType!, correct: answerIsCorrect)
+        statistic.incrementKey(currentExercise!.questionType, correct: answerIsCorrect)
+        
+        return answerIsCorrect
     }
     
     
@@ -164,7 +170,7 @@ enum QuestionType {
 enum InputType {
     case AudioChoise, AudioRecord, TextChoise
     
-    static let allValues = [AudioRecord]
+    static let allValues = [AudioChoise, AudioRecord, TextChoise]
 }
 
 enum OutputType {

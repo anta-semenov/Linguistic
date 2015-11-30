@@ -28,5 +28,6 @@ extension Word {
     @NSManaged var parent: Word?
     @NSManaged var translates: NSSet?
     @NSManaged var includeInCourses: NSSet?
+    @NSManaged var randomOrder: Int16
 
 }

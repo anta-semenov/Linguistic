@@ -84,7 +84,7 @@ class LanguagesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         //Ask user for confirmation
-        self.showOkCancelQuestion("Confirm deletion", message: "Deleting the language will delete all your progress in words and exercises. This action is undo", okHandler: {() -> Void in let deletingLanguage = self.languages[indexPath.row]
+        self.showOkCancelQuestion(NSLocalizedString("ConfirmLanguageDeletion", comment: "Confirm deletion") , message: NSLocalizedString("ConfirmLanguageDeletionMessage", comment: "Confirm deletion message"), okHandler: {() -> Void in let deletingLanguage = self.languages[indexPath.row]
                                          self.languages.removeAtIndex(indexPath.row)
                                          self.rootContext.deleteObject(deletingLanguage)
                                          CoreDataHelper.save(self.rootContext)

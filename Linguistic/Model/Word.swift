@@ -19,7 +19,7 @@ class Word: InitialManagedObject {
         
         for activeCourse in language.activeCourses() {
             if let course = activeCourse as? Course {
-                coursesPredicate.append(NSPredicate(format: "%@ IN includeInCourses", course))
+                coursesPredicate.append(NSPredicate(format: "ANY includeInCourses == %@", course))
             }
         }
         
@@ -62,6 +62,7 @@ class Word: InitialManagedObject {
         newWord.nextUsageTime = NSDate()
         newWord.lastUsageTime = NSDate()
         newWord.learnProgress = 0
+        newWord.randomOrder = Int16(arc4random()%200)
         
         return newWord
     }

@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  Linguistic
+
+  Created by Anton on 29/11/15.
+  Copyright © 2015 Anton Semenov. All rights reserved.
+*/
+
+/* */
+"QuestionTypeChooseTranslate" = "Choose translate";
+
+/* */
+"QuestionTypeChooseBackTranslate" = "Choose translate";
+
+"QuestionTypeCompileTranslate" = "";
+
+"QuestionTypeFillMissings" = "Fill missings in phrase";
+
+"QuestionTypeInsertMissings" = "Fill missings in phrase";
+
+"QuestionTypeCompilePhrase" = "Tap words in correct order";
+
+"QuestionTypeCompletePhrase" = "Choose correct completion of phrase";
+
+"ConfirmLanguageDeletion" = "Confirm deletion";
+
+"ConfirmLanguageDeletionMessage" = "Deleting the language will delete all your progress in words and exercises. This action is undo";
+
+"UserDidntAnswer" = "You haven't given any anwer yet";
+
+"LessonCorrectAnswer" = "Answer is correct";
+
+"LessonUncorrectAnswer" = "You're wrong";
+
+"LessonNextButtonTitle" = "Next";
+
+"LessonCheckButtonTitle" = "Check";
+
+"OkButton" = "Ok";
+
+"CancelButton" = "Cancel";
+

@@ -8,7 +8,13 @@
 
 import UIKit
 
-class TextAnswerCell: UICollectionViewCell {
+final class TextAnswerCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
+    
+    override var selected: Bool {
+        didSet {
+            self.backgroundColor = selected ? UIColor.lgLessonSelectItemColor(): UIColor.lgLessonItemColor()
+        }
+    }
 }
